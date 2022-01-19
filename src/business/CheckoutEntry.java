@@ -1,20 +1,19 @@
 package business;
 
-public class CheckoutEntry {
+public final class CheckoutEntry {
 	private Stuff stuff;
 	private Member member;
 	private Book book;
-	private String bookName;
 	
-	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook, String thatName){
+	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook){
 		this.stuff = thatStuff;
 		this.book = thatBook;
 		this.member = thatMember;
-		this.bookName = thatName;
+		//System.out.println(getDetails());
 	}
 	
 	private String getDetails() {
-		return "\t Details for Book : " + bookName 
+		return "\t Details for Book : " + book.getName()
 				+ "\nStuff : " + stuff
 				+  "\n Member : " + member 
 				+ "\n Book : " + book

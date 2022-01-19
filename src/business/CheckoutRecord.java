@@ -4,18 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutRecord {
-	List<Book> totalRecord;
+	List<CheckoutEntry> totalRecord;
 	
 	CheckoutRecord() {
 		totalRecord = new ArrayList<>();
 	}
 	
-	public void addRecord(Book newEntry) {
+	public void addRecord(CheckoutEntry newEntry) {
 		totalRecord.add(newEntry);
 	}
 	
 	private String getDetails() {
-		return totalRecord.toArray().toString();
+		String allBooks = "";
+		
+		for(CheckoutEntry eachEntry : totalRecord)
+			allBooks += eachEntry + " , ";
+		
+		return "[ " + allBooks + " ]";
 	}
 	
 	@Override public String toString() {

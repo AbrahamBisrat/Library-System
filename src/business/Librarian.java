@@ -1,6 +1,6 @@
 package business;
 
-public class Librarian extends Stuff{
+public final class Librarian extends Stuff{
 	
 	
 	Librarian(String fName, String lName, String role) {

@@ -1,6 +1,6 @@
 package business;
 
-public class Author {
+public final class Author {
 	private String name;
 	
 	Author(String name){

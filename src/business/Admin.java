@@ -1,6 +1,6 @@
 package business;
 
-public class Admin extends Stuff{
+public final class Admin extends Stuff{
 	
 	Admin(String fName, String lName, String role){
 		super(fName, lName, role);
