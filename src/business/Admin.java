@@ -7,6 +7,8 @@ public final class Admin extends Stuff{
 	Address address;
 	List<Book> allBooks;
 	List<Member> membersList;
+	// Compose librarian object for dual role
+	
 	
 	Admin(String fName, String lName, String role){
 		super(fName, lName, role);
@@ -41,6 +43,27 @@ public final class Admin extends Stuff{
 	
 	public void addBooks(List<Book> listOfBooks) {
 		allBooks.addAll(listOfBooks);
+	}
+	
+	public String checkoutHistory() {
+		String historyIntro = "\n\n History of Every Checkout \n";
+		
+		String messageBody = "";
+		
+		for(Member eachMember : getAllMembers()) {
+			String everyUsersHistory = "";
+			for(CheckoutEntry e : eachMember.getCheckouts()) {
+				everyUsersHistory += "[ " + e.getMember().getName() 
+						+ "  borrowed : " + e.getBook().getTitle() 
+						+ "  on : " + e.getBook().getCheckoutDate()
+						+ "\n";
+			}
+			messageBody += everyUsersHistory;
+		}
+		if(messageBody.equals(""))
+			messageBody = "No data found";
+		
+		return historyIntro + messageBody;
 	}
 	
 	@Override public String toString() {
