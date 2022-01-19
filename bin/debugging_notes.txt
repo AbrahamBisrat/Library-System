@@ -11,15 +11,10 @@ Helpful debugging tips
 	
 	
 --module-path "your-path\lib" --add-modules javafx.controls,javafx.fxml
-
 example:
-
---module-path "D:\javafx\javafx-sdk-14.0.1\lib" --add-modules javafx.controls,javafx.fxml 
-to our VM arguments.
-
-Mac path
-/Users/MPB/JavaLibs/javafx-sdk-17.0.1/lib
-
-
-
 --module-path "/Users/MPB/JavaLibs/javafx-sdk-17.0.1/lib" --add-modules javafx.controls,javafx.fxml
+
+If there is no error but the windown doesn't appear
+	In configurations 
+	disable Use the -XstartOnFirst....
+
