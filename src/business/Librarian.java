@@ -9,7 +9,7 @@ public final class Librarian extends Stuff{
 	
 	Librarian(String fName, String lName, String role) {
 		super(fName, lName, Utils.LIBRARIAN);
-	}	
+	}
 	
 	public void checkout(Book thisBook, Member borrower) {
 		CheckoutEntry checkout = new CheckoutEntry(this, borrower, thisBook);

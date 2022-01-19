@@ -8,10 +8,8 @@ public final class Admin extends Stuff{
 	List<Book> allBooks;
 	List<Member> membersList;
 	
-	
-	Admin(String fName, String lName, String role, Address thatAddress){
+	Admin(String fName, String lName, String role){
 		super(fName, lName, role);
-		this.address = thatAddress;
 		membersList = new ArrayList<>();
 		allBooks = new ArrayList<>();
 	}
@@ -21,6 +19,7 @@ public final class Admin extends Stuff{
 		return membersList.get(membersList.size() - 1);
 	}
 	
+	// this implementation needs to change, delete by name or id
 	public boolean removeMember(Member removeThisMember) {
 		if(!membersList.contains(removeThisMember))
 			return false;
@@ -29,16 +28,19 @@ public final class Admin extends Stuff{
 		return true;
 	}
 	
+	public List<Member> getAllMembers() {
+		return membersList;
+	}
+	public List<Book> getAllBooks() {
+		return allBooks;
+	}
+	
 	public void addBook(Book thisOne) {
 		allBooks.add(thisOne);
 	}
 	
 	public void addBooks(List<Book> listOfBooks) {
 		allBooks.addAll(listOfBooks);
-	}
-	
-	@Override public String getDetails() {
-		return "From Admin object : " + super.getDetails();
 	}
 	
 	@Override public String toString() {

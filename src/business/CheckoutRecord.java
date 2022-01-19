@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutRecord {
-	List<CheckoutEntry> totalRecord;
+	List<CheckoutEntry> thisRecord;
 	
-	CheckoutRecord() {
-		totalRecord = new ArrayList<>();
+	CheckoutRecord(List<CheckoutEntry> thatRecord, Member member) {
+		thisRecord = thatRecord;
 	}
 	
 	public void addRecord(CheckoutEntry newEntry) {
-		totalRecord.add(newEntry);
+		thisRecord.add(newEntry);
 	}
 	
 	private String getDetails() {
 		String allBooks = "";
 		
-		for(CheckoutEntry eachEntry : totalRecord)
+		for(CheckoutEntry eachEntry : thisRecord)
 			allBooks += eachEntry + " , ";
 		
 		return "[ " + allBooks + " ]";

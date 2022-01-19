@@ -15,7 +15,7 @@ public final class CheckoutEntry {
 	}
 	
 	private void addToMemberList() {
-		member.getCheckoutList().add(this);
+		member.getCheckouts().add(this);
 	}
 
 	private void addToStuffList() {

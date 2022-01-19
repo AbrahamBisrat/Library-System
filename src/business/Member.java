@@ -21,24 +21,27 @@ public class Member {
 		return firstName + " " + lastName;
 	}
 	
+	public List<CheckoutEntry> getCheckouts(){
+		return checkouts;
+	}
+	
 	public void addCheckoutRecord(CheckoutEntry newCheckout) {
 		checkouts.add(newCheckout);
 	}
 	
-	public List<CheckoutEntry> getCheckoutList(){
-		return checkouts;
-	}
-	
 	public String getAllDetails() {
 		String allBorrowedBooks = (checkouts.isEmpty()) ?
-				"No Borrowed books recorded."
-				: "";
+				"No Borrowed books recorded." : "";
 		for(CheckoutEntry eachCheckout : checkouts)
 			allBorrowedBooks += eachCheckout.getBook() + "\n";
 		
 		return this.toString() + allBorrowedBooks;
 	}
-
+	
+	public CheckoutRecord getCheckoutRecord(){
+		return new CheckoutRecord(checkouts, this);
+	}
+	
 	@Override public String toString() {
 		return getName();
 	}
