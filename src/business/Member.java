@@ -1,16 +1,18 @@
 package business;
 
 public class Member {
-	private String name;
+	private String firstName;
+	private String lastName;
 	
 	// package level
-	Member(String thatName){
-		this.name = thatName;
+	Member(String fName, String lName){
+		firstName = fName;
+		lastName = lName;
 	}
 	
-	public String getName() { return name; }
+	public String getName() { return firstName + " " + lastName; }
 	
 	@Override public String toString() {
-		return name;
+		return getName();
 	}
 }
