@@ -5,6 +5,7 @@ public final class CheckoutEntry {
 	private Member member;
 	private Book book;
 	
+	
 	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook){
 		this.stuff = thatStuff;
 		this.book = thatBook;
