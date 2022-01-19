@@ -7,7 +7,7 @@ public class Member {
 	private String firstName;
 	private String lastName;
 	private Address address;
-	private List<CheckoutEntry> checkouts;	
+	private List<CheckoutEntry> checkouts;
 	
 	// package level
 	Member(String fName, String lName, Address thatAddress) {
