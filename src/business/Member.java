@@ -25,6 +25,10 @@ public class Member {
 		checkouts.add(newCheckout);
 	}
 	
+	public List<CheckoutEntry> getCheckoutList(){
+		return checkouts;
+	}
+	
 	public String getAllDetails() {
 		String allBorrowedBooks = (checkouts.isEmpty()) ?
 				"No Borrowed books recorded."

@@ -7,7 +7,7 @@ public class Controller {
 	public static void main(String[] args) {
 		
 		Address address = Factory.createAddress("1000 N, 4th Street");
-		Admin admin = Factory.createAdmin("Admin", "Admin", "Administrator");
+		Admin admin = Factory.createAdmin("Admin", "Admin", Utils.ADMIN, address);
 		Author author = Factory.createAuthor("Josh Bloch");
 		Book book = Factory.createBook("Effective Java");
 		Librarian lib = Factory.createLibrarian("front desk", "reception", "Librarian");

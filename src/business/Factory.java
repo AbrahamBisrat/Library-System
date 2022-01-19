@@ -9,8 +9,8 @@ public final class Factory {
 		return new Member(fName, lName, address);
 	}
 
-	public static Admin createAdmin(String fName, String lName, String role) {
-		return new Admin(fName, lName, role);
+	public static Admin createAdmin(String fName, String lName, String role, Address address) {
+		return new Admin(fName, lName, role, address);
 	}
 
 	public static Author createAuthor(String fName, String lName, String creds, String shortBio) {

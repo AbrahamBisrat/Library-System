@@ -9,7 +9,10 @@ public final class Book {
 	private boolean availablity;
 	private List<Member> borrowerList;
 	private List<Author> authors;
-
+	
+	// Dates for checkout and returns
+	
+	
 	// package level
 	Book(String thatTitle, int iSBN) {
 		this.title = thatTitle;

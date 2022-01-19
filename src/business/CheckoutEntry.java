@@ -10,10 +10,21 @@ public final class CheckoutEntry {
 		this.book = thatBook;
 		this.member = thatMember;
 		//System.out.println(getDetails());
+		
+		addToStuffList();
+		addToMemberList();
 	}
 	
+	private void addToMemberList() {
+		member.getCheckoutList().add(this);
+	}
+
+	private void addToStuffList() {
+		stuff.allCheckouts.add(this);
+	}
+
 	private String getDetails() {
-		return "\t Details for Book : " + book.getName()
+		return "\t Details for Book : " + book
 				+ "\nStuff : " + stuff
 				+  "\n Member : " + member 
 				+ "\n Book : " + book
