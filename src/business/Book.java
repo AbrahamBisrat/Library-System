@@ -8,13 +8,12 @@ import java.util.List;
 public final class Book {
 	private String title;
 	private int iSBN;
-	private LocalDate checkoutDate;
 	private boolean availablity;
 	private List<Member> borrowerList;
 	private List<Author> authors;
 	
-	// Dates for checkout and returns
-	
+	// availability toggling
+	// book copy
 	
 	// package level
 	Book(String thatTitle, int iSBN) {
@@ -23,17 +22,12 @@ public final class Book {
 		availablity = true;
 		authors = new ArrayList<>();
 		borrowerList = new ArrayList<>();
-		checkoutDate = LocalDate.now();
 	}
 
 	public int getISBN() {
 		return iSBN;
 	}
-	
-	public LocalDate getCheckoutDate() {
-		return checkoutDate;
-	}
-	
+		
 	public String getTitle() {
 		return title;
 	}

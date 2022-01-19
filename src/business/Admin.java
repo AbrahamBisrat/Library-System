@@ -5,8 +5,8 @@ import java.util.List;
 
 public final class Admin extends Stuff{
 	Address address;
-	List<Book> allBooks;
-	List<Member> membersList;
+	static List<Book> allBooks;
+	static List<Member> membersList;
 	// Compose librarian object for dual role
 	
 	
@@ -30,10 +30,10 @@ public final class Admin extends Stuff{
 		return true;
 	}
 	
-	public List<Member> getAllMembers() {
+	public static List<Member> getAllMembers() {
 		return membersList;
 	}
-	public List<Book> getAllBooks() {
+	public static List<Book> getAllBooks() {
 		return allBooks;
 	}
 	
@@ -50,12 +50,17 @@ public final class Admin extends Stuff{
 		
 		String messageBody = "";
 		
+//		System.out.println(TEXT_RED + "This text is red!" + TEXT_RESET);
+		
 		for(Member eachMember : getAllMembers()) {
 			String everyUsersHistory = "";
 			for(CheckoutEntry e : eachMember.getCheckouts()) {
 				everyUsersHistory += "[ " + e.getMember().getName() 
 						+ "  borrowed : " + e.getBook().getTitle() 
-						+ "  on : " + e.getBook().getCheckoutDate()
+						+ "  on : " + e.getCheckoutDate()
+						+ ((e.isItReturned()) ? 
+								(Utils.TEXT_GREEN + " returned on : " + e.getReturnedDate() + " ]" + Utils.TEXT_RESET) 
+								: (Utils.TEXT_RED + " not returned!" + Utils.TEXT_RESET + " ]")) 
 						+ "\n";
 			}
 			messageBody += everyUsersHistory;

@@ -1,14 +1,23 @@
 package business;
 
+import java.time.LocalDate;
+
 public final class CheckoutEntry {
 	private Stuff stuff;
 	private Member member;
 	private Book book;
+	private LocalDate checkoutDate;
+	private LocalDate returnDate;
+	private boolean returned;
 	
 	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook){
 		this.stuff = thatStuff;
 		this.book = thatBook;
 		this.member = thatMember;
+		checkoutDate = LocalDate.now();
+		
+		thatBook.makeUnavailable();
+		returned = false;
 		
 		addToStuffList();
 		addToMemberList();
@@ -16,6 +25,16 @@ public final class CheckoutEntry {
 	
 	private void addToMemberList() {
 		member.getCheckouts().add(this);
+	}
+	
+	public boolean isItReturned() {
+		return returned;
+	}
+	
+	public LocalDate getReturnedDate() {
+		if(!returned)
+			return null;
+		return returnDate;
 	}
 
 	private void addToStuffList() {
@@ -34,12 +53,21 @@ public final class CheckoutEntry {
 		return book;
 	}
 	
+	public LocalDate getCheckoutDate() {
+		return checkoutDate;
+	}
+	
 	public Stuff getStuff() {
 		return stuff;
 	}
 	
 	public Member getMember() {
 		return member;
+	}
+	
+	public void returned() {
+		returnDate = LocalDate.now();
+		returned = true;
 	}
 	
 	@Override public String toString() {

@@ -15,6 +15,16 @@ public final class Librarian extends Stuff{
 		CheckoutEntry checkout = new CheckoutEntry(this, borrower, thisBook);
 	}
 	
+	
+	// Caution! Fancy code ahead
+	
+	public void returnBook(Book thisOne) {
+		for(Member eachMember : Admin.getAllMembers())
+			for(CheckoutEntry everyCheckout : eachMember.getCheckouts())
+				if(everyCheckout.getBook().equals(thisOne))
+					everyCheckout.returned();
+	}
+	
 	@Override public String getDetails() { 
 		return "From Library Object : " + super.getDetails();  
 	}

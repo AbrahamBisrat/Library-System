@@ -27,9 +27,10 @@ public class Controller {
 		}
 		
 		
-		// return books implementation
+		// days calculation
 		
 	}
+	
 	// In the following iterations this will be replaced by the db;
 	private void fetchTestingData() {
 		 Address address = Factory.createAddress("1000 N 4th st", 
@@ -47,7 +48,6 @@ public class Controller {
 		 admin.addMember("fifth", "Potato", address);
 		 
 		 List<Book> book = new ArrayList<>();
-		 new Factory();
 		 book.add(Factory.createBook("Effective Java", 12345));
 		 book.add(Factory.createBook("Design Patterns", 23456));
 		 book.add(Factory.createBook("Refactoring", 34567));
@@ -65,6 +65,9 @@ public class Controller {
 		 librarian.checkout(book.get(1), admin.getAllMembers().get(3));
 		 librarian.checkout(book.get(0), admin.getAllMembers().get(1));
 		 
+		 
+		 librarian.returnBook(book.get(2));
+		 librarian.returnBook(book.get(0));
 		 
 		 
 	}
