@@ -20,6 +20,18 @@ public final class CheckoutEntry {
 				+ "\n";
 	}
 	
+	public Book getBook() {
+		return book;
+	}
+	
+	public Stuff getStuff() {
+		return stuff;
+	}
+	
+	public Member getMember() {
+		return member;
+	}
+	
 	@Override public String toString() {
 		return getDetails();
 	}

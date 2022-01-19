@@ -56,7 +56,9 @@ public final class Book {
 				"No member has borrowed this book yet." 
 				: "Members who borrowed this book are : \n";
 		
-		String allAuthors = "";
+		String allAuthors = (authors.isEmpty()) ?
+				"No authors have been recorded.\n"
+				: "";
 		
 		for(Member eachBorrower : borrowerList)
 			allBorrowers += eachBorrower.getName() + "\n";
@@ -67,8 +69,7 @@ public final class Book {
 		return this.toString() + allBorrowers + allAuthors;
 	}
 
-	@Override
-	public String toString() {
+	@Override public String toString() {
 		return "[ Book Title : " + getTitle() + "\t iSBN id : " + getISBN() + " ] ";
 	}
 }

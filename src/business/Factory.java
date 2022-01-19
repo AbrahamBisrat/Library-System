@@ -4,14 +4,14 @@ public final class Factory {
 	public static Librarian createLibrarian(String fName, String lName, String role) {
 		return new Librarian(fName, lName, role);
 	}
-	public static Member createMember(String fName, String lName) {
-		return new Member(fName, lName);
+	public static Member createMember(String fName, String lName, Address address) {
+		return new Member(fName, lName, address);
 	}
 	public static Admin createAdmin(String fName, String lName, String role) {
 		return new Admin(fName, lName, role);
 	}
-	public static Author createAuthor(String name) {
-		return new Author(name);
+	public static Author createAuthor(String firstName, String lastName, String credentials, String shortBio) {
+		return new Author(firstName, lastName, credentials, shortBio);
 	}
 	public static Address createAddress(String address) {
 		return new Address(address);
