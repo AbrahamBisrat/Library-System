@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>JavaFX-graphics</artifactId>
+        <version>17</version>
+        
+</dependency>
+
+<dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>JavaFX-web</artifactId>
+        <version>15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>JavaFX-swing</artifactId>
+        <version>15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javaFX-graphics</artifactId>
+        <version>15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javaFX-controls</artifactId>
+        <version>15</version>
+    </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>JavaFX-base</artifactId>
+        <version>15</version>
+    </dependency>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+	<!-- TODO Add Nodes -->
+</AnchorPane>
+
