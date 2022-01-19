@@ -6,6 +6,7 @@ import java.util.List;
 public class Book {
 	private String title;
 	private int iSBN;
+	private boolean availablity;
 	private List<Member> borrowerList;
 	private List<Author> authors;
 	
@@ -13,12 +14,16 @@ public class Book {
 	Book(String thatTitle, int iSBN){
 		this.title = thatTitle;
 		this.iSBN = iSBN;
+		availablity = true;
 		authors = new ArrayList<>();
 		borrowerList = new ArrayList<>();
 	}
 	
 	public String getTitle() { return title; }
 	public int getISBN() { return iSBN; }
+	public boolean isItAvailable() { return availablity; }
+	public void makeUnavailable() { availablity = false; }
+	public void makeAvailable() { availablity = true; }
 	
 	public void addAuthor(Author author) { 
 		authors.add(author);
