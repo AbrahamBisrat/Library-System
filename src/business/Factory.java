@@ -4,10 +4,11 @@ public final class Factory {
 	public static Librarian createLibrarian(String fName, String lName, String role) {
 		return new Librarian(fName, lName, Utils.LIBRARIAN);
 	}
-
-	public static Member createMember(String fName, String lName, Address address) {
-		return new Member(fName, lName, address);
-	}
+	
+	/*** >>> ONLY ADMIN CAN CREATE USER  <<<	 ***/
+//	public static Member createMember(String fName, String lName, Address address) {
+//		return new Member(fName, lName, address);
+//	}
 
 	public static Admin createAdmin(String fName, String lName, String role, Address address) {
 		return new Admin(fName, lName, role, address);

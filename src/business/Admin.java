@@ -16,12 +16,8 @@ public final class Admin extends Stuff{
 		allBooks = new ArrayList<>();
 	}
 	
-	public void addMember(Member newMember) {
-		membersList.add(newMember);
-	}
-	
-	public void addMembers(List<Member> listOfMembers) {
-		membersList.addAll(listOfMembers);
+	public void addMember(String fName, String lName, Address thatAddress) {
+		membersList.add(new Member(fName, lName, thatAddress));
 	}
 	
 	public boolean removeMember(Member removeThisMember) {

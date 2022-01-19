@@ -5,12 +5,10 @@ public final class CheckoutEntry {
 	private Member member;
 	private Book book;
 	
-	
 	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook){
 		this.stuff = thatStuff;
 		this.book = thatBook;
 		this.member = thatMember;
-		//System.out.println(getDetails());
 		
 		addToStuffList();
 		addToMemberList();
@@ -23,7 +21,7 @@ public final class CheckoutEntry {
 	private void addToStuffList() {
 		stuff.allCheckouts.add(this);
 	}
-
+	
 	private String getDetails() {
 		return "\t Details for Book : " + book
 				+ "\nStuff : " + stuff
