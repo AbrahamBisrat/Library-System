@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public final class Book {
 	private String title;
@@ -84,4 +85,20 @@ public final class Book {
 	public void addCopy() {
 		numberOfCopies++;
 	}
+
+	@Override public int hashCode() {
+		return Objects.hash(iSBN, title);
+	}
+
+	@Override public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return Objects.equals(iSBN, other.iSBN) && Objects.equals(title, other.title);
+	}
+	
 }

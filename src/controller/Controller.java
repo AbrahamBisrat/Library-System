@@ -5,6 +5,7 @@ import java.util.List;
 
 import business.*;
 import dataaccess.Auth;
+import dataaccess.TestData;
 
 
 public class Controller {
@@ -14,6 +15,7 @@ public class Controller {
 	
 	public static void main(String[] args) {
 		
+		TestData.main(args);
 		
 		Controller c = new Controller();
 		System.out.println(c.admin.getAllMembers());
@@ -22,6 +24,7 @@ public class Controller {
 		System.out.println(c.admin.checkoutHistory());
 				
 		// days calculation
+		
 		
 	}
 }

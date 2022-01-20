@@ -12,7 +12,7 @@ import java.util.List;
 import business.Book;
 //import business.BookCopy;
 import business.LibraryMember;
-//import dataaccess.DataAccessFacade.StorageType;
+import dataaccess.DataAccessFacade.StorageType;
 
 
 public class DataAccessFacade implements DataAccess {
@@ -23,7 +23,7 @@ public class DataAccessFacade implements DataAccess {
 
 //	public static final String OUTPUT_DIR = "";
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-			+ "\\src\\dataaccess\\storage";
+			+ "//src//dataaccess//storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 	//implement: other save operations

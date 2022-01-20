@@ -11,7 +11,9 @@ Helpful debugging tips
 	
 	
 --module-path "your-path\lib" --add-modules javafx.controls,javafx.fxml
+
 example:
+
 --module-path "/Users/MPB/JavaLibs/javafx-sdk-17.0.1/lib" --add-modules javafx.controls,javafx.fxml
 
 If there is no error but the windown doesn't appear

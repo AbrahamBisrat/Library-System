@@ -2,6 +2,7 @@ package business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LibraryMember {
 	private String firstName;
@@ -48,16 +49,24 @@ public class LibraryMember {
 		return new CheckoutRecord(checkouts, this);
 	}
 
-	@Override
-	public String toString() {
+	@Override public String toString() {
 		return "LibraryMember [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
 				+ ", memberId=" + memberId + ", phoneNumber=" + phoneNumber + ", checkouts=" + checkouts + "]";
 	}
-	
-	public static void main(String[] args) {
-		
-		LibraryMember l = new LibraryMember("32423", "do!", "optimally", "and prosper", null);
-		System.out.println(l);
-		
+
+	@Override public int hashCode() {
+		return Objects.hash(firstName, lastName, memberId);
+	}
+
+	@Override public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LibraryMember other = (LibraryMember) obj;
+		return Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
+				&& Objects.equals(memberId, other.memberId);
 	}
 }

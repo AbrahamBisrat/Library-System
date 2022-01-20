@@ -2,6 +2,7 @@ package business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import dataaccess.*;
 
@@ -88,4 +89,24 @@ public final class Admin extends Stuff{
 	@Override public String toString() {
 		return getDetails();
 	}
+
+	@Override public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(address, password, username);
+		return result;
+	}
+
+	@Override public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Admin other = (Admin) obj;
+		return Objects.equals(address, other.address) && Objects.equals(password, other.password)
+				&& Objects.equals(username, other.username);
+	}
+	
 }

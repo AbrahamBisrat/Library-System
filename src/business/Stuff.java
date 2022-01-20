@@ -2,6 +2,7 @@ package business;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import dataaccess.Auth;
 
@@ -32,5 +33,22 @@ public abstract class Stuff {
 	
 	@Override public String toString() {
 		return getDetails();
+	}
+
+	@Override public int hashCode() {
+		return Objects.hash(allCheckouts, dualRole, firstName, lastName, role);
+	}
+
+	@Override public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Stuff other = (Stuff) obj;
+		return Objects.equals(allCheckouts, other.allCheckouts) && dualRole == other.dualRole
+				&& Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
+				&& role == other.role;
 	}
 }

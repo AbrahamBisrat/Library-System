@@ -1,6 +1,7 @@
 package business;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public final class CheckoutEntry {
 	private Stuff stuff;
@@ -73,4 +74,21 @@ public final class CheckoutEntry {
 	@Override public String toString() {
 		return getDetails();
 	}
+
+	@Override public int hashCode() {
+		return Objects.hash(book, checkoutDate, member);
+	}
+
+	@Override public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CheckoutEntry other = (CheckoutEntry) obj;
+		return Objects.equals(book, other.book) && Objects.equals(checkoutDate, other.checkoutDate)
+				&& Objects.equals(member, other.member);
+	}
+	
 }
