@@ -1,6 +1,7 @@
 package business;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,7 +18,6 @@ public final class Admin extends Stuff{
 	
 	// Compose librarian object for dual role
 	
-	
 	public Admin(String fName, String lName, Auth role, 
 			String thatUsername, String thatPassword){
 		
@@ -27,6 +27,7 @@ public final class Admin extends Stuff{
 		membersList = new ArrayList<>();
 		allBooks = new ArrayList<>();
 		
+		// adding to database would be more flexible
 		// adding details to Database...
 	}
 	
@@ -90,6 +91,8 @@ public final class Admin extends Stuff{
 		
 		return historyIntro + messageBody;
 	}
+	
+	public DataAccess getdb() { return db; }
 	
 	@Override public String toString() {
 		return getDetails();

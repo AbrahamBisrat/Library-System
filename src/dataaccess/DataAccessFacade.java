@@ -20,7 +20,7 @@ public class DataAccessFacade implements DataAccess {
 	enum StorageType {
 		BOOKS, MEMBERS, USERS;
 	}
-
+	
 //	public static final String OUTPUT_DIR = "";
 	public static final String OUTPUT_DIR = System.getProperty("user.dir")
 			+ "//src//dataaccess//storage";
@@ -144,7 +144,6 @@ public class DataAccessFacade implements DataAccess {
 		}
 		private static final long serialVersionUID = 5399827794066637059L;
 	}
-
 
 
 //	@Override

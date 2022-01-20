@@ -11,22 +11,21 @@ import dataaccess.TestData;
 
 public class Controller {
 	
-	Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
-	Librarian librarian = new Librarian("front desk", "reception");
-	
 	public static void main(String[] args) {
+		//Librarian librarian = new Librarian("front desk", "reception");
+		
 		TestData.main(args); 
+
+		Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
 		
 		DataAccess db = new DataAccessFacade();
 		
 		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
 		
-		LibraryMember newGuy = new LibraryMember("879876", "Boiled", "Potatos", 
-										"0976986756", ad);
-		
 		System.out.println(db.readMemberMap());
 		
-		db.saveNewMember(newGuy);
+		admin.addMember(new LibraryMember("879876", "Boiled", "Potatos", 
+										"0976986756", ad));
 		
 		System.out.println(db.readMemberMap());
 		
