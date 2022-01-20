@@ -30,14 +30,26 @@ public class Login {
 	private void checkLogin() throws IOException{
 		Main m = new Main();
 		
-		String passwordString = "asdf";
-		String usernameString = "abcd";
+		String adminUsername = "a";
+		String adminPassword = "a";
 		
-		if(userName.getText().toString().equals(usernameString) 
-				&& passwordField.getText().toString().equals(passwordString)) {
+		String librarianUsername = "s";
+		String librarianPassword = "s";
+		
+		
+		// you can use a list and contains method for the real side
+		if(userName.getText().toString().equals(adminUsername) 
+				&& passwordField.getText().toString().equals(adminPassword)) {
 			wrongLogin.setText("Sucess!");
 			
-			m.changeScene("afterLogin.fxml");
+			m.changeScene("Admin.fxml");
+		}
+		else if(userName.getText().toString().equals(librarianUsername) 
+				&& passwordField.getText().toString().equals(librarianPassword)) {
+			
+			wrongLogin.setText("Welcome Librarian");
+			
+			m.changeScene("Librarian.fxml");
 		}
 		else {
 			userName.setText("");
