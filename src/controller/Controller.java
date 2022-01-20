@@ -24,11 +24,13 @@ public class Controller {
 		
 		System.out.println(db.readMemberMap());
 		
-		admin.addMember(new LibraryMember("879876", "Boiled", "Potatos", 
-										"0976986756", ad));
+		admin.addMember("879876", "Boiled", "Potatos", "0976986756", ad);
+		
+		System.out.println("\n" + db.readMemberMap());
+		
+		admin.removeMember("879876");
 		
 		System.out.println(db.readMemberMap());
-		
 //		Controller c = new Controller();
 //		System.out.println(c.admin.getAllMembers());
 //		System.out.println("\n" + c.admin.getAllBooks());

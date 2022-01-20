@@ -43,12 +43,13 @@ public final class Admin extends Stuff{
 	}
 	
 	// this implementation needs to change, delete by name or id
-	public boolean removeMember(LibraryMember removeThisMember) {
-		if(!membersList.contains(removeThisMember))
-			return false;
-		
-		membersList.remove(removeThisMember);
-		return true;
+	public boolean removeMember(String memId) {
+		db.removeMember(memId);
+//		if(!membersList.contains(removeThisMember))
+//			return false;
+//		
+//		membersList.remove(removeThisMember);
+		return true;  // review this
 	}
 	
 	public static List<LibraryMember> getAllMembers() {

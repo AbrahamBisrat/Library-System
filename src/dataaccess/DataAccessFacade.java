@@ -146,6 +146,22 @@ public class DataAccessFacade implements DataAccess {
 	}
 
 
+
+	@Override
+	public void removeMember(String memId) {
+//		System.out.println("from del: " + readFromStorage(StorageType.MEMBERS));
+		
+		HashMap<String, LibraryMember> membersTable = readMemberMap();
+		
+		for(LibraryMember eachMember : membersTable.values())
+			if(eachMember.getMemberId().equals(memId))
+				membersTable.remove(eachMember.getMemberId());
+		
+		System.out.println("After deletion : " + membersTable);
+		saveToStorage(StorageType.MEMBERS, membersTable);
+	}
+
+
 //	@Override
 //	public void saveNewMember(LibraryMember member) {
 //		// TODO Auto-generated method stub
