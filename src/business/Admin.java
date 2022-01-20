@@ -10,9 +10,10 @@ public final class Admin extends Stuff{
 	private String username = "";
 	private String password = "";
 	
-	Address address;
 	static List<Book> allBooks;
 	static List<LibraryMember> membersList;
+	
+	private DataAccess db = new DataAccessFacade();
 	
 	// Compose librarian object for dual role
 	
@@ -33,6 +34,10 @@ public final class Admin extends Stuff{
 			String phoneNum, Address address) {
 		LibraryMember newMember = new LibraryMember(memId, fName, lName, phoneNum, address);
 		membersList.add(newMember);
+		
+		// adding entry to database
+		db.saveNewMember(newMember);
+		
 		return membersList.get(membersList.size() - 1);
 	}
 	
@@ -93,7 +98,7 @@ public final class Admin extends Stuff{
 	@Override public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(address, password, username);
+		result = prime * result + Objects.hash(password, username);
 		return result;
 	}
 
@@ -105,7 +110,7 @@ public final class Admin extends Stuff{
 		if (getClass() != obj.getClass())
 			return false;
 		Admin other = (Admin) obj;
-		return Objects.equals(address, other.address) && Objects.equals(password, other.password)
+		return Objects.equals(password, other.password)
 				&& Objects.equals(username, other.username);
 	}
 	

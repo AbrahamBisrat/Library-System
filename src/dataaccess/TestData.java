@@ -25,8 +25,8 @@ public class TestData {
         td.libraryMemberData();
         td.userData();
         DataAccess da = new DataAccessFacade();
-        System.out.println(da.readBooksMap());
-        System.out.println(da.readUserMap());
+//        System.out.println(da.readBooksMap());
+//        System.out.println(da.readUserMap());
     }
 
     ///create books
