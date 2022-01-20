@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.afterLogin">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="233.0" fitWidth="385.0" layoutX="116.0" layoutY="75.0">
+               <image>
+                  <Image url="@../../../../Downloads/brick_wall_texture_192138_1280x720.jpeg" />
+               </image>
+            </ImageView>
+            <Label layoutX="210.0" layoutY="327.0" text="Congratulations! You have hit a wall!" textFill="#e4dada" />
+            <Button fx:id="logout" layoutX="455.0" layoutY="323.0" mnemonicParsing="false" onAction="#logoutSession" text="logout" textFill="#403030" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
