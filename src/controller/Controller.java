@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import business.*;
+import dataaccess.Auth;
 
 
 public class Controller {
 	
-	Admin admin = Factory.createAdmin("Mr", "X", Utils.ADMIN.toString(), "admin", "admin");
+	Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
 	Librarian librarian = Factory.createLibrarian("front desk", "reception", "Librarian");
 	
 	public static void main(String[] args) {

@@ -26,8 +26,10 @@ public final class Admin extends Stuff{
 		// adding details to Database...
 	}
 	
-	public LibraryMember addMember(String fName, String lName, Address thatAddress) {
-		membersList.add(new LibraryMember(fName, lName, thatAddress));
+	public LibraryMember addMember(String memId, String fName, String lName, 
+			String phoneNum, Address address) {
+		LibraryMember newMember = new LibraryMember(memId, fName, lName, phoneNum, address);
+		membersList.add(newMember);
 		return membersList.get(membersList.size() - 1);
 	}
 	

@@ -10,19 +10,17 @@ public class LibraryMember {
 	private String memberId;
 	private String phoneNumber;
 	private List<CheckoutEntry> checkouts;
-	
-	// package level
-	public LibraryMember(String memberId, String fName, 
-			String lName, String phoneNum, Address thatAddress) {
-		
-		this.memberId = memberId;
-		this.firstName = fName;
-		this.lastName = lName;
-		this.phoneNumber = phoneNum;
-		this.address = thatAddress;
+
+	public LibraryMember(String memId, String fName, String lName, 
+			String phoneNum, Address thatAddress) {
+		memberId = memId;
+		firstName = fName;
+		lastName = lName;
+		phoneNumber = phoneNum;
+		address = thatAddress;
 		checkouts = new ArrayList<>();
 	}
-
+	
 	public String getName() {
 		return firstName + " " + lastName;
 	}
@@ -49,8 +47,17 @@ public class LibraryMember {
 	public CheckoutRecord getCheckoutRecord(){
 		return new CheckoutRecord(checkouts, this);
 	}
+
+	@Override
+	public String toString() {
+		return "LibraryMember [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+				+ ", memberId=" + memberId + ", phoneNumber=" + phoneNumber + ", checkouts=" + checkouts + "]";
+	}
 	
-	@Override public String toString() {
-		return getName();
+	public static void main(String[] args) {
+		
+		LibraryMember l = new LibraryMember("32423", "do!", "optimally", "and prosper", null);
+		System.out.println(l);
+		
 	}
 }
