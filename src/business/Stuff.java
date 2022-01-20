@@ -3,24 +3,26 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
+import dataaccess.Auth;
+
 public abstract class Stuff {
 	protected String firstName;
 	protected String lastName;
-	protected String role;
+	protected Auth role;
 	protected boolean dualRole; // Admin + Librarian
 	
 	
 	protected List<CheckoutEntry> allCheckouts;
 	
-	Stuff(String fName, String lName, String role){
+	Stuff(String fName, String lName, Auth role){
 		this.firstName = fName;
 		this.lastName = lName;
 		this.role = role;
 		
-		if(!role.equals(Utils.ADMIN))
+		if(role.equals(Auth.ADMIN))
 			allCheckouts = new ArrayList<>();
 		
-		if(role.equals(Utils.DUAL_ROLE))
+		if(role.equals(Auth.BOTH))
 			dualRole = true;
 	}
 	

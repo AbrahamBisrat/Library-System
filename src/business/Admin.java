@@ -3,6 +3,8 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
+import dataaccess.*;
+
 public final class Admin extends Stuff{
 	private String username = "";
 	private String password = "";
@@ -14,7 +16,7 @@ public final class Admin extends Stuff{
 	// Compose librarian object for dual role
 	
 	
-	Admin(String fName, String lName, String role, 
+	public Admin(String fName, String lName, Auth role, 
 			String thatUsername, String thatPassword){
 		
 		super(fName, lName, role);

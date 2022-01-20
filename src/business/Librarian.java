@@ -1,17 +1,16 @@
 package business;
 
-import java.util.ArrayList;
-import java.util.List;
+import dataaccess.Auth;
 
 public final class Librarian extends Stuff{
-	Roles role = Roles.LIBRARIAN;
+	Auth role = Auth.LIBRARIAN;
 	
 	
-	Librarian(String fName, String lName, String role) {
-		super(fName, lName, Utils.LIBRARIAN);
+	public Librarian(String fName, String lName) {
+		super(fName, lName, Auth.LIBRARIAN);
 	}
 	
-	public void checkout(Book thisBook, Member borrower) {
+	public void checkout(Book thisBook, LibraryMember borrower) {
 		CheckoutEntry checkout = new CheckoutEntry(this, borrower, thisBook);
 	}
 	
