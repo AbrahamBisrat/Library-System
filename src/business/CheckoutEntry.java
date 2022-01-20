@@ -1,9 +1,10 @@
 package business;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public final class CheckoutEntry {
+public final class CheckoutEntry implements Serializable{
 	private Stuff stuff;
 	private LibraryMember member;
 	private Book book;

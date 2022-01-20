@@ -1,12 +1,13 @@
 package business;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import dataaccess.Auth;
 
-public abstract class Stuff {
+public abstract class Stuff implements Serializable{
 	protected String firstName;
 	protected String lastName;
 	protected Auth role;

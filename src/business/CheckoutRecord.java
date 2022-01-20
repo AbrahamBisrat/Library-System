@@ -1,9 +1,10 @@
 package business;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckoutRecord {
+public class CheckoutRecord implements Serializable{
 	List<CheckoutEntry> thisRecord;
 	
 	CheckoutRecord(List<CheckoutEntry> thatRecord, LibraryMember member) {

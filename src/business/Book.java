@@ -1,5 +1,6 @@
 package business;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public final class Book {
+public final class Book implements Serializable{
 	private String title;
 	private String iSBN;
 	private boolean availablity;
