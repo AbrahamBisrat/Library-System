@@ -4,25 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Admin extends Stuff{
+	private String username = "";
+	private String password = "";
+	
 	Address address;
 	static List<Book> allBooks;
-	static List<Member> membersList;
+	static List<LibraryMember> membersList;
+	
 	// Compose librarian object for dual role
 	
 	
-	Admin(String fName, String lName, String role){
+	Admin(String fName, String lName, String role, 
+			String thatUsername, String thatPassword){
+		
 		super(fName, lName, role);
+		this.username = thatUsername;
+		this.password = thatPassword;
 		membersList = new ArrayList<>();
 		allBooks = new ArrayList<>();
+		
+		// adding details to Database...
 	}
 	
-	public Member addMember(String fName, String lName, Address thatAddress) {
-		membersList.add(new Member(fName, lName, thatAddress));
+	public LibraryMember addMember(String fName, String lName, Address thatAddress) {
+		membersList.add(new LibraryMember(fName, lName, thatAddress));
 		return membersList.get(membersList.size() - 1);
 	}
 	
 	// this implementation needs to change, delete by name or id
-	public boolean removeMember(Member removeThisMember) {
+	public boolean removeMember(LibraryMember removeThisMember) {
 		if(!membersList.contains(removeThisMember))
 			return false;
 		
@@ -30,7 +40,7 @@ public final class Admin extends Stuff{
 		return true;
 	}
 	
-	public static List<Member> getAllMembers() {
+	public static List<LibraryMember> getAllMembers() {
 		return membersList;
 	}
 	public static List<Book> getAllBooks() {
@@ -52,7 +62,7 @@ public final class Admin extends Stuff{
 		
 //		System.out.println(TEXT_RED + "This text is red!" + TEXT_RESET);
 		
-		for(Member eachMember : getAllMembers()) {
+		for(LibraryMember eachMember : getAllMembers()) {
 			String everyUsersHistory = "";
 			for(CheckoutEntry e : eachMember.getCheckouts()) {
 				everyUsersHistory += "[ " + e.getMember().getName() 

@@ -8,7 +8,7 @@ import business.*;
 
 public class Controller {
 	
-	Admin admin = Factory.createAdmin("Mr", "X", Utils.ADMIN);
+	Admin admin = Factory.createAdmin("Mr", "X", Utils.ADMIN.toString(), "admin", "admin");
 	Librarian librarian = Factory.createLibrarian("front desk", "reception", "Librarian");
 	
 	public static void main(String[] args) {
@@ -25,8 +25,7 @@ public class Controller {
 		catch(Exception e){
 			System.out.println("What happened?");
 		}
-		
-		
+				
 		// days calculation
 		
 	}

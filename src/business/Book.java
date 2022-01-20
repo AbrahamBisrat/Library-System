@@ -2,29 +2,32 @@ package business;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public final class Book {
 	private String title;
-	private int iSBN;
+	private String iSBN;
 	private boolean availablity;
-	private List<Member> borrowerList;
-	private List<Author> authors;
+	private List<LibraryMember> borrowerList;
+	private List<Author> authors = new ArrayList<>();
+	private int numberOfCopies;
 	
-	// availability toggling
-	// book copy
+	// revise availablity logic
 	
-	// package level
-	Book(String thatTitle, int iSBN) {
+	public Book(String iSBN, String thatTitle, int numberOfCopies,
+			List<Author> authorList) {
+		
 		this.title = thatTitle;
 		this.iSBN = iSBN;
+		this.numberOfCopies = numberOfCopies;
 		availablity = true;
-		authors = new ArrayList<>();
+		authors.addAll(authorList);
 		borrowerList = new ArrayList<>();
 	}
 
-	public int getISBN() {
+	public String getISBN() {
 		return iSBN;
 	}
 		
@@ -33,7 +36,7 @@ public final class Book {
 	}
 
 	public boolean isItAvailable() {
-		return availablity;
+		return availablity;			// This should use number of Copies
 	}
 
 	public void makeUnavailable() {
@@ -52,7 +55,7 @@ public final class Book {
 		authors.addAll(authors);
 	}
 
-	public void addBorrower(Member thisOne) {
+	public void addBorrower(LibraryMember thisOne) {
 		borrowerList.add(thisOne);
 	}
 
@@ -65,7 +68,7 @@ public final class Book {
 				"No authors have been recorded.\n"
 				: "";
 		
-		for(Member eachBorrower : borrowerList)
+		for(LibraryMember eachBorrower : borrowerList)
 			allBorrowers += eachBorrower.getName() + "\n";
 		
 		for(Author eachAuthor : authors)
@@ -76,5 +79,9 @@ public final class Book {
 
 	@Override public String toString() {
 		return "[ Book Title : " + getTitle() + "\t iSBN id : " + getISBN() + " ] ";
+	}
+
+	public void addCopy() {
+		numberOfCopies++;
 	}
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public class CheckoutRecord {
 	List<CheckoutEntry> thisRecord;
 	
-	CheckoutRecord(List<CheckoutEntry> thatRecord, Member member) {
+	CheckoutRecord(List<CheckoutEntry> thatRecord, LibraryMember member) {
 		thisRecord = thatRecord;
 	}
 	

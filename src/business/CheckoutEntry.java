@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public final class CheckoutEntry {
 	private Stuff stuff;
-	private Member member;
+	private LibraryMember member;
 	private Book book;
 	private LocalDate checkoutDate;
 	private LocalDate returnDate;
 	private boolean returned;
 	
-	CheckoutEntry(Stuff thatStuff, Member thatMember, Book thatBook){
+	CheckoutEntry(Stuff thatStuff, LibraryMember thatMember, Book thatBook){
 		this.stuff = thatStuff;
 		this.book = thatBook;
 		this.member = thatMember;
@@ -61,7 +61,7 @@ public final class CheckoutEntry {
 		return stuff;
 	}
 	
-	public Member getMember() {
+	public LibraryMember getMember() {
 		return member;
 	}
 	

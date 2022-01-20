@@ -19,7 +19,7 @@ public final class Librarian extends Stuff{
 	// Caution! Fancy code ahead
 	
 	public void returnBook(Book thisOne) {
-		for(Member eachMember : Admin.getAllMembers())
+		for(LibraryMember eachMember : Admin.getAllMembers())
 			for(CheckoutEntry everyCheckout : eachMember.getCheckouts())
 				if(everyCheckout.getBook().equals(thisOne))
 					everyCheckout.returned();

@@ -3,16 +3,22 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Member {
+public class LibraryMember {
 	private String firstName;
 	private String lastName;
 	private Address address;
+	private String memberId;
+	private String phoneNumber;
 	private List<CheckoutEntry> checkouts;
 	
 	// package level
-	Member(String fName, String lName, Address thatAddress) {
+	public LibraryMember(String memberId, String fName, 
+			String lName, String phoneNum, Address thatAddress) {
+		
+		this.memberId = memberId;
 		this.firstName = fName;
 		this.lastName = lName;
+		this.phoneNumber = phoneNum;
 		this.address = thatAddress;
 		checkouts = new ArrayList<>();
 	}
@@ -24,6 +30,8 @@ public class Member {
 	public List<CheckoutEntry> getCheckouts(){
 		return checkouts;
 	}
+	
+	public String getMemberId() { return memberId; }
 	
 	public void addCheckoutRecord(CheckoutEntry newCheckout) {
 		checkouts.add(newCheckout);
