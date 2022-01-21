@@ -38,7 +38,7 @@ public class LibraryMember implements Serializable{
 	
 	public String getMemberId() { return memberId; }
 	
-	public void addCheckoutRecord(CheckoutEntry newCheckout) {
+	public void addCheckoutEntry(CheckoutEntry newCheckout) {
 		checkoutList.add(newCheckout);
 	}
 	

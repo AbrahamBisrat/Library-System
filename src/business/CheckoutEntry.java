@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Objects;
 
 public final class CheckoutEntry implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private LibraryMember member;
 	private Book book;
@@ -18,16 +15,15 @@ public final class CheckoutEntry implements Serializable{
 	private boolean returned;
 	
 	CheckoutEntry(LibraryMember thatMember, Book thatBook){
-		//this.stuff = thatStuff;
-		this.book = thatBook;
-		this.member = thatMember;
+		book = thatBook;
+		member = thatMember;
 		checkoutDate = LocalDate.now();
 		
 		thatBook.makeUnavailable();
 		returned = false;
 		
-		member.addCheckoutRecord(this);
-		book.addBorrower(thatMember);
+		member.addCheckoutEntry(this);
+		book.addCheckoutEntry(this);
 	}
 	
 	public boolean isItReturned() {

@@ -57,30 +57,12 @@ public final class Book implements Serializable{
 		authors.addAll(authors);
 	}
 
-	public void addBorrower(CheckoutEntry thisOne) {
+	public void addCheckoutEntry(CheckoutEntry thisOne) {
 		checkoutList.add(thisOne);
 	}
 	
 	public List<CheckoutEntry> getBorrowersList() {
 		return checkoutList;
-	}
-
-	public String getAllDetails() {
-		String allBorrowers = (borrowerList.isEmpty()) ? 
-				"No member has borrowed this book yet." 
-				: "Members who borrowed this book are : \n";
-		
-		String allAuthors = (authors.isEmpty()) ?
-				"No authors have been recorded.\n"
-				: "";
-		
-		for(LibraryMember eachBorrower : borrowerList)
-			allBorrowers += eachBorrower.getName() + "\n";
-		
-		for(Author eachAuthor : authors)
-			allAuthors += eachAuthor.getName() + "\n";
-		
-		return this.toString() + allBorrowers + allAuthors;
 	}
 
 	@Override public String toString() {
