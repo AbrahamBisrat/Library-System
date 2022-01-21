@@ -10,13 +10,15 @@ public final class CheckoutEntry implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private LibraryMember member;
 	private Book book;
+	private Librarian libMan;
 	private LocalDate checkoutDate;
 	private LocalDate returnDate;
 	private boolean returned;
 	
-	CheckoutEntry(LibraryMember thatMember, Book thatBook){
+	CheckoutEntry(LibraryMember thatMember, Book thatBook, Librarian lib){
 		book = thatBook;
 		member = thatMember;
+		libMan = lib;
 		checkoutDate = LocalDate.now();
 		
 		thatBook.makeUnavailable();
@@ -24,6 +26,7 @@ public final class CheckoutEntry implements Serializable{
 		
 		member.addCheckoutEntry(this);
 		book.addCheckoutEntry(this);
+		libMan.addCheckoutEntry(this);
 	}
 	
 	public boolean isItReturned() {
@@ -53,8 +56,6 @@ public final class CheckoutEntry implements Serializable{
 		returned = true;
 	}
 	
-	
-
 	@Override public String toString() {
 		return "CheckoutEntry [member=" + member 
 				+ ", book=" + book + ", checkoutDate=" 

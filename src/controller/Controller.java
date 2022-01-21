@@ -16,14 +16,11 @@ public class Controller {
 	Librarian lib;
 	LibraryMember mem;
 	Address addr;
-	
-	
-	
+		
 	public static void main(String[] args) {
 		TestData.main(args); 
 		
 		Controller c = new Controller();
-		// Admin side Tests
 		
 		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
 //		
@@ -97,5 +94,15 @@ public class Controller {
 	public CheckoutRecord getCheckoutList(LibraryMember mem) {
 		return mem.getCheckoutRecord();
 	}
+	
+	public List<LibraryMember> getBorrowerList(Book b) {
+		List<LibraryMember> borrowers = new ArrayList<>();
+		
+		for(CheckoutEntry everyCheckout : b.getBorrowersList())
+			borrowers.add(everyCheckout.getMember());
+		
+		return borrowers;	
+	}
+	
 	
 }
