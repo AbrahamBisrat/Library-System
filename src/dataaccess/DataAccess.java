@@ -16,4 +16,5 @@ public interface DataAccess {
 //	void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
 //	void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
 	public void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
+	public void removeBook(String iSBN);
 }

@@ -88,7 +88,7 @@ public final class Book implements Serializable{
 	}
 
 	@Override public int hashCode() {
-		return Objects.hash(iSBN, title);
+		return Objects.hash(iSBN);
 	}
 
 	@Override public boolean equals(Object obj) {
@@ -99,7 +99,7 @@ public final class Book implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		return Objects.equals(iSBN, other.iSBN) && Objects.equals(title, other.title);
+		return Objects.equals(iSBN, other.iSBN);
 	}
 	
 }

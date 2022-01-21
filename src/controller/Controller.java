@@ -12,29 +12,29 @@ import dataaccess.TestData;
 public class Controller {
 	
 	public static void main(String[] args) {
-		//Librarian librarian = new Librarian("front desk", "reception");
-		
 		TestData.main(args); 
-
+		
+		// Admin side Tests
+		
 		Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
 		
 		DataAccess db = new DataAccessFacade();
 		
-		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
-		
-		System.out.println(Admin.getAllMembers());
+//		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
+//		
+//		System.out.println(Admin.getAllMembers());
 		
 		admin.addMember("879876", "Boiled", "Potatos", "0976986756", ad);
 		
-		System.out.println("\nAdd : " + db.readMemberMap());
+//		System.out.println("\nAdd : " + db.readMemberMap());
 		
 		admin.removeMember("879876");
 		
-		System.out.println("remove : " + Admin.getAllMembers());
-		
-		System.out.println(db.readBooksMap());
-		
-		System.out.println();
+//		System.out.println("remove : " + Admin.getAllMembers());
+//		
+//		System.out.println(db.readBooksMap());
+//		
+//		System.out.println();
 		
 		List<Author> authors = new ArrayList<>() {
 			{
@@ -53,6 +53,18 @@ public class Controller {
 		
 		System.out.println("\n\n Books After add \n\n");
 		System.out.println(admin.showBooks());
+		
+		System.out.println("\n\n Books AFTER REMOVE \n\n");
+		
+		admin.removeBook("23544");
+		
+		System.out.println(admin.showBooks());
+		
+		
+		// Librarian Tests
+		
+		Librarian lib = new Librarian("front desk", "reception");
+		
 		
 		
 		

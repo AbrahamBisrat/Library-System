@@ -63,6 +63,10 @@ public final class Admin extends Stuff{
 		db.addNewBook(iSBN, thatTitle, numberOfCopies, authorList);		
 	}
 	
+	public void removeBook(String iSBN) {
+		db.removeBook(iSBN);
+	}
+	
 	public HashMap<String, Book> showBooks(){
 		return db.readBooksMap();
 	}

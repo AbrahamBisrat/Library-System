@@ -56,7 +56,7 @@ public class LibraryMember implements Serializable{
 	}
 
 	@Override public int hashCode() {
-		return Objects.hash(firstName, lastName, memberId);
+		return Objects.hash(memberId);
 	}
 
 	@Override public boolean equals(Object obj) {
@@ -67,7 +67,6 @@ public class LibraryMember implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		LibraryMember other = (LibraryMember) obj;
-		return Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
-				&& Objects.equals(memberId, other.memberId);
+		return Objects.equals(memberId, other.memberId);
 	}
 }
