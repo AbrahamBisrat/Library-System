@@ -94,5 +94,8 @@ public class Controller {
 		// days calculation		
 	}
 	
+	public CheckoutRecord getCheckoutList(LibraryMember mem) {
+		return mem.getCheckoutRecord();
+	}
 	
 }
