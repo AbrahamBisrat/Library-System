@@ -33,14 +33,14 @@ public class Controller {
 		System.out.println("\n		Checkout and return tests");
 		
 		// let's see members and books
-		System.out.println(c.admin.showBooks());
-		System.out.println(Admin.getAllMembers());
+//		System.out.println(c.admin.showBooks());
+//		System.out.println(Admin.getAllMembers());
 		
 		lib.checkout("99-22223", "1001");
 		
-//		System.out.println("\n\n Did the changes Stick!");
-//		System.out.println(c.admin.getdb().readMemberMap().get("1001"));
-//		System.out.println(c.admin.getdb().readBooksMap().get("99-22223"));
+		System.out.println("\n\n Did the changes Stick!");
+		System.out.println(c.admin.getdb().readMemberMap().get("1001"));
+		System.out.println(c.admin.getdb().readBooksMap().get("99-22223"));
 		
 //		System.out.println("\n After checkout of  '99-22223' by '1001'\n");
 //		System.out.println(c.admin.showBooks());

@@ -165,15 +165,19 @@ public class DataAccessFacade implements DataAccess {
 		System.out.println(booksTable);
 		saveToStorage(StorageType.BOOKS, booksTable);
 	}
-	@Override public void updateBook(String iSBN, String thatTitle, int numberOfCopies, 
-			List<Author> authorList, List<CheckoutEntry> pChecks) {
+	@Override public void updateBook(Book b) {
 		
 		HashMap<String, Book> booksTable = readBooksMap();
-		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList, pChecks);
+//		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList, pChecks);
 		
-		booksTable.put(newBook.getISBN(), newBook);
+		
+		booksTable.put(b.getISBN(), b);
 		System.out.println(booksTable);
 		saveToStorage(StorageType.BOOKS, booksTable);
+	}
+	
+	@Override public void updateMember(LibraryMember m) {
+		
 	}
 	
 	@Override public void removeMember(String memId) {
@@ -202,8 +206,9 @@ public class DataAccessFacade implements DataAccess {
 			}
 		}
 		
-		//books.remove(removeThisOne.hashCode());
-		//System.out.println("rm Bk : " + removeThisOne.hashCode());
 		saveToStorage(StorageType.BOOKS, books);
 	}
+
+	
+	
 }

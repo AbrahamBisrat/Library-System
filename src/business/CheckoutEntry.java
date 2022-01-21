@@ -8,17 +8,15 @@ import java.util.Objects;
 
 public final class CheckoutEntry implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private LibraryMember member;
-	private Book book;
-	private Librarian libMan;
-	private LocalDate checkoutDate;
-	private LocalDate returnDate;
-	private boolean returned;
+	LibraryMember member;
+	Book book;
+	LocalDate checkoutDate;
+	LocalDate returnDate;
+	boolean returned;
 	
-	CheckoutEntry(LibraryMember thatMember, Book thatBook, Librarian lib){
+	CheckoutEntry(LibraryMember thatMember, Book thatBook){
 		book = thatBook;
 		member = thatMember;
-		libMan = lib;
 		checkoutDate = LocalDate.now();
 		
 		thatBook.makeUnavailable();
@@ -26,7 +24,6 @@ public final class CheckoutEntry implements Serializable{
 		
 		member.addCheckoutEntry(this);
 		thatBook.addCheckoutEntry(this);
-		libMan.addCheckoutEntry(this);
 	}
 	
 	public boolean isItReturned() {

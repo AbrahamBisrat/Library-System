@@ -3,17 +3,17 @@ package business;
 import dataaccess.Auth;
 import dataaccess.DataAccess;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import dataaccess.*;
 
-public final class Librarian extends Stuff{
+public final class Librarian extends Stuff implements Serializable{
 	private static final long serialVersionUID = 1L;
 	Auth role = Auth.LIBRARIAN;
 	private DataAccess dbLib = new DataAccessFacade();
-	public static List<CheckoutEntry> checkouts = new ArrayList<>();
 	
 	public Librarian(String fName, String lName) {
 		super(fName, lName, Auth.LIBRARIAN);
@@ -26,20 +26,27 @@ public final class Librarian extends Stuff{
 		if(thisBook == null || borrower == null)
 			return;
 		
-		CheckoutEntry checkout = new CheckoutEntry(borrower, thisBook, this);
-//		System.out.println("from Checkout method : ");
-//		System.out.print(borrower.toString());
-//		System.out.print(thisBook);
-//		System.out.print(checkout);
+		CheckoutEntry checkout = 
+				new CheckoutEntry(borrower, thisBook);
+		
+		System.out.println("from Checkout method : ");
+		System.out.print(borrower.toString());
+		System.out.print(thisBook);
+		System.out.print(checkout);
 		
 		// updating database
-		thisBook.setCheckouts(null);
+//		thisBook.checkoutList = null;
+//		thisBook.checkoutDebugging();
 		updateBookInDB(thisBook);
+		updateMemberInDB(borrower);
 	}
 	
+	private void updateMemberInDB(LibraryMember m) {
+		dbLib.updateMember(m);
+	}
+
 	private void updateBookInDB(Book b) {
-		dbLib.updateBook(b.getISBN(), b.getTitle(), b.getCopies(), 
-				b.getAuthors(), b.getBorrowersList());
+		dbLib.updateBook(b);
 	}
 
 	private LibraryMember getMemberWithId(String memId) {
@@ -58,10 +65,6 @@ public final class Librarian extends Stuff{
 		catch(Exception e){
 			return null;
 		}
-	}
-	
-	public void addCheckoutEntry(CheckoutEntry thisCheckout) {
-		checkouts.add(thisCheckout);
 	}
 	
 	public HashMap<String, LibraryMember> getAllMembers() {

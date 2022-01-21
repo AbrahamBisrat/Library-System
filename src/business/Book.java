@@ -13,7 +13,7 @@ public final class Book implements Serializable{
 	private String title;
 	private String iSBN;
 	private boolean availablity;
-	private List<CheckoutEntry> checkoutList; 
+	List<CheckoutEntry> checkoutList; 
 	private List<Author> authors = new ArrayList<>();
 	private int numberOfCopies;
 	
@@ -44,8 +44,9 @@ public final class Book implements Serializable{
 	public List<Author> getAuthors(){
 		return authors;
 	}
-	public void setCheckouts(List<CheckoutEntry> setToThis) {
-		checkoutList = setToThis;
+	
+	public void checkoutDebugging() {
+		checkoutList.clear();
 	}
 	public String getISBN() {
 		return iSBN;
