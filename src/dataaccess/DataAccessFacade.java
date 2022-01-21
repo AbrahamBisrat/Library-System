@@ -9,10 +9,12 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
+import business.Address;
+import business.Author;
 import business.Book;
 //import business.BookCopy;
 import business.LibraryMember;
-import dataaccess.DataAccessFacade.StorageType;
+
 
 
 public class DataAccessFacade implements DataAccess {
@@ -124,8 +126,7 @@ public class DataAccessFacade implements DataAccess {
 			first = s;
 			second = t;
 		}
-		@Override 
-		public boolean equals(Object ob) {
+		@Override public boolean equals(Object ob) {
 			if(ob == null) return false;
 			if(this == ob) return true;
 			if(ob.getClass() != getClass()) return false;
@@ -134,12 +135,10 @@ public class DataAccessFacade implements DataAccess {
 			return p.first.equals(first) && p.second.equals(second);
 		}
 		
-		@Override 
-		public int hashCode() {
+		@Override public int hashCode() {
 			return first.hashCode() + 5 * second.hashCode();
 		}
-		@Override
-		public String toString() {
+		@Override public String toString() {
 			return "(" + first.toString() + ", " + second.toString() + ")";
 		}
 		private static final long serialVersionUID = 5399827794066637059L;
@@ -147,25 +146,30 @@ public class DataAccessFacade implements DataAccess {
 
 
 
-	@Override
-	public void removeMember(String memId) {
-//		System.out.println("from del: " + readFromStorage(StorageType.MEMBERS));
-		
+	@Override public void removeMember(String memId) {
 		HashMap<String, LibraryMember> membersTable = readMemberMap();
 		
 		for(LibraryMember eachMember : membersTable.values())
 			if(eachMember.getMemberId().equals(memId))
 				membersTable.remove(eachMember.getMemberId());
 		
-		System.out.println("After deletion : " + membersTable);
 		saveToStorage(StorageType.MEMBERS, membersTable);
 	}
 
-
-//	@Override
-//	public void saveNewMember(LibraryMember member) {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	@Override public void addMember(String memId, String fName, String lName, String phoneNum, Address address) {
+		LibraryMember newMember = new LibraryMember(memId, fName, lName, phoneNum, address);
+//		membersList.add(newMember);
+		
+		// adding entry to database
+		saveNewMember(newMember);
+	}
 	
+	@Override public void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList) {
+		HashMap<String, Book> booksTable = readBooksMap();
+		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList);
+		booksTable.put(newBook.getISBN(), newBook);
+		System.out.println(booksTable);
+		saveToStorage(StorageType.BOOKS, booksTable);
+	}
+
 }
