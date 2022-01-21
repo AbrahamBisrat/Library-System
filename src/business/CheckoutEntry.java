@@ -2,18 +2,23 @@ package business;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public final class CheckoutEntry implements Serializable{
-	private Stuff stuff;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private LibraryMember member;
 	private Book book;
 	private LocalDate checkoutDate;
 	private LocalDate returnDate;
 	private boolean returned;
 	
-	CheckoutEntry(Stuff thatStuff, LibraryMember thatMember, Book thatBook){
-		this.stuff = thatStuff;
+	CheckoutEntry(LibraryMember thatMember, Book thatBook){
+		//this.stuff = thatStuff;
 		this.book = thatBook;
 		this.member = thatMember;
 		checkoutDate = LocalDate.now();
@@ -21,12 +26,8 @@ public final class CheckoutEntry implements Serializable{
 		thatBook.makeUnavailable();
 		returned = false;
 		
-		addToStuffList();
-		addToMemberList();
-	}
-	
-	private void addToMemberList() {
-		member.getCheckouts().add(this);
+		member.addCheckoutRecord(this);
+		book.addBorrower(thatMember);
 	}
 	
 	public boolean isItReturned() {
@@ -39,28 +40,12 @@ public final class CheckoutEntry implements Serializable{
 		return returnDate;
 	}
 
-	private void addToStuffList() {
-		stuff.allCheckouts.add(this);
-	}
-	
-	private String getDetails() {
-		return "\t Details for Book : " + book
-				+ "\nStuff : " + stuff
-				+  "\n Member : " + member 
-				+ "\n Book : " + book
-				+ "\n";
-	}
-	
 	public Book getBook() {
 		return book;
 	}
 	
 	public LocalDate getCheckoutDate() {
 		return checkoutDate;
-	}
-	
-	public Stuff getStuff() {
-		return stuff;
 	}
 	
 	public LibraryMember getMember() {
@@ -72,8 +57,13 @@ public final class CheckoutEntry implements Serializable{
 		returned = true;
 	}
 	
+	
+
 	@Override public String toString() {
-		return getDetails();
+		return "CheckoutEntry [member=" + member 
+				+ ", book=" + book + ", checkoutDate=" 
+				+ checkoutDate + ", returnDate="
+				+ returnDate + ", returned=" + returned + "]";
 	}
 
 	@Override public int hashCode() {
@@ -91,5 +81,4 @@ public final class CheckoutEntry implements Serializable{
 		return Objects.equals(book, other.book) && Objects.equals(checkoutDate, other.checkoutDate)
 				&& Objects.equals(member, other.member);
 	}
-	
 }

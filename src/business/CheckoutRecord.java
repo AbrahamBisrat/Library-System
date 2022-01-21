@@ -6,9 +6,11 @@ import java.util.List;
 
 public class CheckoutRecord implements Serializable{
 	List<CheckoutEntry> thisRecord;
+	LibraryMember member;
 	
-	CheckoutRecord(List<CheckoutEntry> thatRecord, LibraryMember member) {
+	CheckoutRecord(List<CheckoutEntry> thatRecord, LibraryMember thatMember) {
 		thisRecord = thatRecord;
+		this.member = thatMember;
 	}
 	
 	public void addRecord(CheckoutEntry newEntry) {
@@ -22,6 +24,10 @@ public class CheckoutRecord implements Serializable{
 			allBooks += eachEntry + " , ";
 		
 		return "[ " + allBooks + " ]";
+	}
+	
+	public LibraryMember getMember() {
+		return member;
 	}
 	
 	@Override public String toString() {

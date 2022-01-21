@@ -12,21 +12,21 @@ public final class Book implements Serializable{
 	private String title;
 	private String iSBN;
 	private boolean availablity;
-	private List<LibraryMember> borrowerList;
+	private List<CheckoutEntry> checkoutList; 
 	private List<Author> authors = new ArrayList<>();
 	private int numberOfCopies;
 	
 	// revise availablity logic
 	
-	public Book(String iSBN, String thatTitle, int numberOfCopies,
+	public Book(String isbn, String thatTitle, int numOfCopies,
 			List<Author> authorList) {
 		
-		this.title = thatTitle;
-		this.iSBN = iSBN;
-		this.numberOfCopies = numberOfCopies;
+		title = thatTitle;
+		iSBN = isbn;
+		numberOfCopies = numOfCopies;
 		availablity = true;
 		authors.addAll(authorList);
-		borrowerList = new ArrayList<>();
+		checkoutList = new ArrayList<>();
 	}
 
 	public String getISBN() {
@@ -57,8 +57,12 @@ public final class Book implements Serializable{
 		authors.addAll(authors);
 	}
 
-	public void addBorrower(LibraryMember thisOne) {
-		borrowerList.add(thisOne);
+	public void addBorrower(CheckoutEntry thisOne) {
+		checkoutList.add(thisOne);
+	}
+	
+	public List<CheckoutEntry> getBorrowersList() {
+		return checkoutList;
 	}
 
 	public String getAllDetails() {

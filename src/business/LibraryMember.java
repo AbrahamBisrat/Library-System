@@ -6,21 +6,26 @@ import java.util.List;
 import java.util.Objects;
 
 public class LibraryMember implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
 	private Address address;
 	private String memberId;
 	private String phoneNumber;
-	private List<CheckoutEntry> checkouts;
-
+	private List<CheckoutEntry> checkoutList;
+		
 	public LibraryMember(String memId, String fName, String lName, 
 			String phoneNum, Address thatAddress) {
+		
 		memberId = memId;
 		firstName = fName;
 		lastName = lName;
 		phoneNumber = phoneNum;
 		address = thatAddress;
-		checkouts = new ArrayList<>();
+		checkoutList = new ArrayList<>();
 	}
 	
 	public String getName() {
@@ -28,26 +33,17 @@ public class LibraryMember implements Serializable{
 	}
 	
 	public List<CheckoutEntry> getCheckouts(){
-		return checkouts;
+		return checkoutList;
 	}
 	
 	public String getMemberId() { return memberId; }
 	
 	public void addCheckoutRecord(CheckoutEntry newCheckout) {
-		checkouts.add(newCheckout);
-	}
-	
-	public String getAllDetails() {
-		String allBorrowedBooks = (checkouts.isEmpty()) ?
-				"No Borrowed books recorded." : "";
-		for(CheckoutEntry eachCheckout : checkouts)
-			allBorrowedBooks += eachCheckout.getBook() + "\n";
-		
-		return this.toString() + allBorrowedBooks;
+		checkoutList.add(newCheckout);
 	}
 	
 	public CheckoutRecord getCheckoutRecord(){
-		return new CheckoutRecord(checkouts, this);
+		return new CheckoutRecord(checkoutList, this);
 	}
 
 	@Override public String toString() {
