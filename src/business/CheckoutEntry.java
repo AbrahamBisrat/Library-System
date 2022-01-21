@@ -25,7 +25,7 @@ public final class CheckoutEntry implements Serializable{
 		returned = false;
 		
 		member.addCheckoutEntry(this);
-		book.addCheckoutEntry(this);
+		thatBook.addCheckoutEntry(this);
 		libMan.addCheckoutEntry(this);
 	}
 	
@@ -58,9 +58,11 @@ public final class CheckoutEntry implements Serializable{
 	
 	@Override public String toString() {
 		return "CheckoutEntry [member=" + member.getFullName()
-				+ ", book=" + book.getTitle() + ", checkoutDate=" 
-				+ checkoutDate + ", returnDate="
-				+ returnDate + ", returned=" + returned + "]";
+				+ ", book=" + book.getTitle() 
+				+ ", checkoutDate="	+ checkoutDate 
+				+ ", returnDate=" + returnDate 
+				+ ", returned=" + returned 
+				+ "]";
 	}
 
 	@Override public int hashCode() {

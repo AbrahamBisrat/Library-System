@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 public final class Book implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String title;
 	private String iSBN;
 	private boolean availablity;
@@ -28,7 +29,24 @@ public final class Book implements Serializable{
 		authors.addAll(authorList);
 		checkoutList = new ArrayList<>();
 	}
-
+	
+	public Book(String isbn, String thatTitle, int numOfCopies,
+			List<Author> authorList, List<CheckoutEntry> previousCheckouts) {
+		
+		title = thatTitle;
+		iSBN = isbn;
+		numberOfCopies = numOfCopies;
+		availablity = true;
+		authors.addAll(authorList);
+		checkoutList = previousCheckouts;
+	}
+	
+	public List<Author> getAuthors(){
+		return authors;
+	}
+	public void setCheckouts(List<CheckoutEntry> setToThis) {
+		checkoutList = setToThis;
+	}
 	public String getISBN() {
 		return iSBN;
 	}
@@ -65,22 +83,22 @@ public final class Book implements Serializable{
 		return checkoutList;
 	}
 
-//	@Override public String toString() {
-//		return "[ Book Title : " + getTitle() 
-//		+ "\t iSBN id : " + getISBN() + " ] \n";
-//	}
-
 	public void addCopy() {
 		numberOfCopies++;
+	}
+	
+	public int getCopies() {
+		return numberOfCopies;
 	}
 	
 	@Override public String toString() {
 		return "Book [title=" + title 
 				+ ", iSBN=" + iSBN 
 				+ ", availablity=" + availablity 
-				+ ", checkoutList="	+ checkoutList 
 				+ ", authors=" + authors 
-				+ ", numberOfCopies=" + numberOfCopies + "]";
+				+ ", numberOfCopies=" + numberOfCopies 
+				+ ", checkoutList=" + checkoutList 
+				+ "]\n";
 	}
 
 	@Override public int hashCode() {

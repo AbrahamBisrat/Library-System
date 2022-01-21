@@ -36,8 +36,12 @@ public class Controller {
 		System.out.println(c.admin.showBooks());
 		System.out.println(Admin.getAllMembers());
 		
-		lib.checkout("99-22223", "1001"); // checkout should with iSBN and memId
-//		
+		lib.checkout("99-22223", "1001");
+		
+//		System.out.println("\n\n Did the changes Stick!");
+//		System.out.println(c.admin.getdb().readMemberMap().get("1001"));
+//		System.out.println(c.admin.getdb().readBooksMap().get("99-22223"));
+		
 //		System.out.println("\n After checkout of  '99-22223' by '1001'\n");
 //		System.out.println(c.admin.showBooks());
 //		System.out.println(Admin.getAllMembers());
@@ -56,8 +60,8 @@ public class Controller {
 //		
 //		System.out.println(Librarian.allCheckouts.toString());
 ////		System.out.println("Book : " + thisBook);
-//		
-//		
+
+		
 		
 		// days calculation		
 	}
@@ -66,7 +70,7 @@ public class Controller {
 		System.out.println(Admin.getAllMembers());
 		
 		c.admin.addMember("879876", "Boiled", "Potatos", "0976986756", ad);
-		
+
 		System.out.println("\nAdd : " + c.db.readMemberMap());
 		
 		c.admin.removeMember("1001"); // needs work

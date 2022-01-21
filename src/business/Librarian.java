@@ -27,12 +27,21 @@ public final class Librarian extends Stuff{
 			return;
 		
 		CheckoutEntry checkout = new CheckoutEntry(borrower, thisBook, this);
-		System.out.println("from Checkout method : ");
-		System.out.print(borrower.toString());
-		System.out.print(thisBook);
-		System.out.print(checkout);
-	}
+//		System.out.println("from Checkout method : ");
+//		System.out.print(borrower.toString());
+//		System.out.print(thisBook);
+//		System.out.print(checkout);
 		
+		// updating database
+		thisBook.setCheckouts(null);
+		updateBookInDB(thisBook);
+	}
+	
+	private void updateBookInDB(Book b) {
+		dbLib.updateBook(b.getISBN(), b.getTitle(), b.getCopies(), 
+				b.getAuthors(), b.getBorrowersList());
+	}
+
 	private LibraryMember getMemberWithId(String memId) {
 		try {
 			return dbLib.readMemberMap().get(memId);

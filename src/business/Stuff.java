@@ -8,6 +8,7 @@ import java.util.Objects;
 import dataaccess.Auth;
 
 public abstract class Stuff implements Serializable{
+	private static final long serialVersionUID = 1L;
 	protected String firstName;
 	protected String lastName;
 	protected Auth role;

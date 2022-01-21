@@ -8,6 +8,7 @@ import java.util.Objects;
 import dataaccess.*;
 
 public final class Admin extends Stuff{
+	private static final long serialVersionUID = 1L;
 	private String username = "";
 	private String password = "";
 	

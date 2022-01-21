@@ -11,11 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-import business.Address;
-import business.Author;
-import business.Book;
 //import business.BookCopy;
-import business.LibraryMember;
+import business.*;
 
 public class DataAccessFacade implements DataAccess {
 
@@ -148,17 +145,32 @@ public class DataAccessFacade implements DataAccess {
 		private static final long serialVersionUID = 5399827794066637059L;
 	}
 
-	@Override public void addMember(String memId, String fName, String lName, String phoneNum, Address address) {
-		LibraryMember newMember = new LibraryMember(memId, fName, lName, phoneNum, address);
-//		membersList.add(newMember);
-
+	@Override public void addMember(String memId, String fName, 
+			String lName, String phoneNum, Address address) {
+		
+		LibraryMember newMember = 
+				new LibraryMember(memId, fName, lName, phoneNum, address);
+		
 		// adding entry to database
 		saveNewMember(newMember);
 	}
 
-	@Override public void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList) {
+	@Override public void addNewBook(String iSBN, String thatTitle, 
+			int numberOfCopies, List<Author> authorList) {
+		
 		HashMap<String, Book> booksTable = readBooksMap();
 		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList);
+		
+		booksTable.put(newBook.getISBN(), newBook);
+		System.out.println(booksTable);
+		saveToStorage(StorageType.BOOKS, booksTable);
+	}
+	@Override public void updateBook(String iSBN, String thatTitle, int numberOfCopies, 
+			List<Author> authorList, List<CheckoutEntry> pChecks) {
+		
+		HashMap<String, Book> booksTable = readBooksMap();
+		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList, pChecks);
+		
 		booksTable.put(newBook.getISBN(), newBook);
 		System.out.println(booksTable);
 		saveToStorage(StorageType.BOOKS, booksTable);
