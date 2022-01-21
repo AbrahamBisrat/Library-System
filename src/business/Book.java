@@ -66,7 +66,8 @@ public final class Book implements Serializable{
 	}
 
 	@Override public String toString() {
-		return "[ Book Title : " + getTitle() + "\t iSBN id : " + getISBN() + " ] ";
+		return "[ Book Title : " + getTitle() 
+		+ "\t iSBN id : " + getISBN() + " ] \n";
 	}
 
 	public void addCopy() {

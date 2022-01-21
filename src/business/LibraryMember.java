@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class LibraryMember implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String firstName;
 	private String lastName;
@@ -47,10 +44,14 @@ public class LibraryMember implements Serializable{
 	}
 
 	@Override public String toString() {
-		return "LibraryMember [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
-				+ ", memberId=" + memberId + ", phoneNumber=" + phoneNumber + ", checkouts=" + checkouts + "]";
+		return "LibraryMember [firstName=" + firstName 
+				+ ", lastName=" + lastName 
+				+ ", address=" + address
+				+ ", memberId=" + memberId 
+				+ ", phoneNumber=" + phoneNumber 
+				+ ", checkouts=" + checkoutList + "]\n";
 	}
-
+	
 	@Override public int hashCode() {
 		return Objects.hash(memberId);
 	}
