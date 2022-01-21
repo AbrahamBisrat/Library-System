@@ -51,6 +51,7 @@ public final class Admin extends Stuff{
 		return db.readMemberMap();
 //		return membersList;
 	}
+	
 	public static HashMap<String, Book> getAllBooks() {
 		return db.readBooksMap();
 	}
@@ -71,7 +72,7 @@ public final class Admin extends Stuff{
 		return db.readBooksMap();
 	}
 	
-//	public String checkoutHistory() {
+	public String checkoutHistory() {
 //		String historyIntro = "\n\n History of Every Checkout \n";
 //		
 //		String messageBody = "";
@@ -95,7 +96,8 @@ public final class Admin extends Stuff{
 //			messageBody = "No data found";
 //		
 //		return historyIntro + messageBody;
-//	}
+		return null;
+	}
 	
 	public DataAccess getdb() { return db; }
 	

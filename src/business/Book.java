@@ -65,13 +65,22 @@ public final class Book implements Serializable{
 		return checkoutList;
 	}
 
-	@Override public String toString() {
-		return "[ Book Title : " + getTitle() 
-		+ "\t iSBN id : " + getISBN() + " ] \n";
-	}
+//	@Override public String toString() {
+//		return "[ Book Title : " + getTitle() 
+//		+ "\t iSBN id : " + getISBN() + " ] \n";
+//	}
 
 	public void addCopy() {
 		numberOfCopies++;
+	}
+	
+	@Override public String toString() {
+		return "Book [title=" + title 
+				+ ", iSBN=" + iSBN 
+				+ ", availablity=" + availablity 
+				+ ", checkoutList="	+ checkoutList 
+				+ ", authors=" + authors 
+				+ ", numberOfCopies=" + numberOfCopies + "]";
 	}
 
 	@Override public int hashCode() {

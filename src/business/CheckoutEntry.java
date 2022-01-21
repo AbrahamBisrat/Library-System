@@ -57,8 +57,8 @@ public final class CheckoutEntry implements Serializable{
 	}
 	
 	@Override public String toString() {
-		return "CheckoutEntry [member=" + member 
-				+ ", book=" + book + ", checkoutDate=" 
+		return "CheckoutEntry [member=" + member.getFullName()
+				+ ", book=" + book.getTitle() + ", checkoutDate=" 
 				+ checkoutDate + ", returnDate="
 				+ returnDate + ", returned=" + returned + "]";
 	}

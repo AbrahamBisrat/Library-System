@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import dataaccess.*;
+
 public class LibraryMember implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String firstName;
@@ -13,7 +15,7 @@ public class LibraryMember implements Serializable{
 	private String memberId;
 	private String phoneNumber;
 	private List<CheckoutEntry> checkoutList;
-		
+	
 	public LibraryMember(String memId, String fName, String lName, 
 			String phoneNum, Address thatAddress) {
 		
@@ -25,7 +27,7 @@ public class LibraryMember implements Serializable{
 		checkoutList = new ArrayList<>();
 	}
 	
-	public String getName() {
+	public String getFullName() {
 		return firstName + " " + lastName;
 	}
 	
@@ -42,7 +44,7 @@ public class LibraryMember implements Serializable{
 	public CheckoutRecord getCheckoutRecord(){
 		return new CheckoutRecord(checkoutList, this);
 	}
-
+	
 	@Override public String toString() {
 		return "LibraryMember [firstName=" + firstName 
 				+ ", lastName=" + lastName 
