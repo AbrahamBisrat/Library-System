@@ -20,7 +20,7 @@ public class Controller {
 		
 		DataAccess db = new DataAccessFacade();
 		
-//		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
+		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
 //		
 //		System.out.println(Admin.getAllMembers());
 		
@@ -51,7 +51,7 @@ public class Controller {
 		
 		admin.addBook("23544", "Effective Java", 12, authors);
 		
-		System.out.println("\n\n Books After add \n\n");
+		System.out.println("\n\n Books remove \n\n");
 		System.out.println(admin.showBooks());
 		
 		System.out.println("\n\n Books AFTER REMOVE \n\n");

@@ -148,16 +148,6 @@ public class DataAccessFacade implements DataAccess {
 		private static final long serialVersionUID = 5399827794066637059L;
 	}
 
-	@Override public void removeMember(String memId) {
-		HashMap<String, LibraryMember> membersTable = readMemberMap();
-
-		for (LibraryMember eachMember : membersTable.values())
-			if (eachMember.getMemberId().equals(memId))
-				membersTable.remove(eachMember.getMemberId());
-
-		saveToStorage(StorageType.MEMBERS, membersTable);
-	}
-
 	@Override public void addMember(String memId, String fName, String lName, String phoneNum, Address address) {
 		LibraryMember newMember = new LibraryMember(memId, fName, lName, phoneNum, address);
 //		membersList.add(newMember);
@@ -173,16 +163,31 @@ public class DataAccessFacade implements DataAccess {
 		System.out.println(booksTable);
 		saveToStorage(StorageType.BOOKS, booksTable);
 	}
+	
+	@Override public void removeMember(String memId) {
+		HashMap<String, LibraryMember> membersTable = readMemberMap();
+
+		for (LibraryMember eachMember : membersTable.values())
+			if (eachMember.getMemberId().equals(memId))
+				membersTable.remove(eachMember.getMemberId());
+
+		saveToStorage(StorageType.MEMBERS, membersTable);
+	}
 
 	@Override public void removeBook(String iSBN) {
 		HashMap<String, Book> books = readBooksMap();
+		Book removeThisOne = null;
 		
-		for(Book eachBook : books.values())
-			if(eachBook.getISBN().equals(iSBN))
-				books.remove(iSBN.hashCode());
+		for(Book eachBook : books.values()) {
+			if(eachBook.getISBN().equals(iSBN)) {
+				removeThisOne = eachBook;
+				books.remove(removeThisOne.getISBN());
+				break;
+			}
+		}
 		
-		System.out.println("rm Bk : " + books);
+		//books.remove(removeThisOne.hashCode());
+		//System.out.println("rm Bk : " + removeThisOne.hashCode());
 		saveToStorage(StorageType.BOOKS, books);
 	}
-
 }
