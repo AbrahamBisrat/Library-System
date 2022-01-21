@@ -166,18 +166,17 @@ public class DataAccessFacade implements DataAccess {
 		saveToStorage(StorageType.BOOKS, booksTable);
 	}
 	@Override public void updateBook(Book b) {
-		
 		HashMap<String, Book> booksTable = readBooksMap();
-//		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList, pChecks);
-		
-		
+
 		booksTable.put(b.getISBN(), b);
-		System.out.println(booksTable);
 		saveToStorage(StorageType.BOOKS, booksTable);
 	}
 	
 	@Override public void updateMember(LibraryMember m) {
+		HashMap<String, LibraryMember> membersTable = readMemberMap();
 		
+		membersTable.put(m.getMemberId(), m);
+		saveToStorage(StorageType.MEMBERS, membersTable);
 	}
 	
 	@Override public void removeMember(String memId) {
