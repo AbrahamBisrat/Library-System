@@ -166,11 +166,15 @@ public class DataAccessFacade implements DataAccess {
 	
 	@Override public void removeMember(String memId) {
 		HashMap<String, LibraryMember> membersTable = readMemberMap();
-
-		for (LibraryMember eachMember : membersTable.values())
-			if (eachMember.getMemberId().equals(memId))
-				membersTable.remove(eachMember.getMemberId());
-
+		LibraryMember thisMember;
+		
+		for (LibraryMember eachMember : membersTable.values()) {
+			if (eachMember.getMemberId().equals(memId)) {
+				thisMember = eachMember;
+				membersTable.remove(thisMember.getMemberId());
+				break;
+			}
+		}
 		saveToStorage(StorageType.MEMBERS, membersTable);
 	}
 

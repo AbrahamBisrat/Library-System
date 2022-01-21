@@ -30,32 +30,34 @@ public class Controller {
 		
 		System.out.println("\nAdd : " + c.db.readMemberMap());
 		
-		c.admin.removeMember("879876");
+		c.admin.removeMember("1001"); // needs work
 		
 		System.out.println("remove : " + Admin.getAllMembers());
 
-		System.out.println("\nBooks Testing...\n\n");
-		
-		List<Author> authors = new ArrayList<>() {
-			{
-				add(new Author("Joe", "Thomas", "641-445-2123", ad, "A happy man is he."));
-	            add(new Author("Sandra", "Thomas", "641-445-2123", ad, "A happy wife is she."));
-	            add(new Author("Nirmal", "Pugh", "641-919-3223", ad, "Thinker of thoughts."));
-	            add(new Author("Andrew", "Cleveland", "976-445-2232", ad, "Author of childrens' books."));
-	            add(new Author("Sarah", "Connor", "123-422-2663", ad, "Known for her clever style."));
-			}
-		};
-		
-		System.out.println("	Books before add \n");
-		System.out.println(c.admin.showBooks());
-
-		c.admin.addBook("23544", "Effective Java", 12, authors);
-		
-		System.out.println("Books after add\n" + c.admin.showBooks());
-		
-		System.out.println("\n\n Books remove 'Thinking in Java' \n\n");
-		c.admin.removeBook("99-22223");
-		System.out.println(c.admin.showBooks());
+//		System.out.println("\nBooks Testing...\n\n");
+//		
+//		List<Author> authors = new ArrayList<>() {
+//			{
+//				add(new Author("Joe", "Thomas", "641-445-2123", ad, "A happy man is he."));
+//	            add(new Author("Sandra", "Thomas", "641-445-2123", ad, "A happy wife is she."));
+//	            add(new Author("Nirmal", "Pugh", "641-919-3223", ad, "Thinker of thoughts."));
+//	            add(new Author("Andrew", "Cleveland", "976-445-2232", ad, "Author of childrens' books."));
+//	            add(new Author("Sarah", "Connor", "123-422-2663", ad, "Known for her clever style."));
+//			}
+//		};
+//		
+//		System.out.println("	Books before add \n");
+//		System.out.println(c.admin.showBooks());
+//
+//		c.admin.addBook("23544", "Effective Java", 12, authors);
+//		
+//		System.out.println("Books after add\n" + c.admin.showBooks());
+//		
+//		System.out.println("\n\n Books remove 'Thinking in Java' \n\n");
+//		c.admin.removeBook("99-22223");
+//		System.out.println(c.admin.showBooks());
+//		
+		// you stopped test here
 		
 //		System.out.println("\n\n Books AFTER REMOVE \n\n");
 //		
