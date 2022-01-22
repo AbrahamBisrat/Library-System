@@ -130,6 +130,7 @@ public class LibrarianTasksUI implements Initializable{
 		System.out.println("search tested");
 		ClearAll();
 	}
+	
 	private boolean verifyCheckOut()
 	{
 		lblMessage.setText("");
@@ -151,6 +152,29 @@ public class LibrarianTasksUI implements Initializable{
 			return true;
 		}
 	}
+	
+	private boolean verifyCheckIn()
+	{
+		lblMessage.setText("");
+		LibraryMember m = l.getMemberWithId(txtMemberID.getText());
+		Book book = l.getBookWithISBN(txtISBN.getText());
+		if (m==null || book==null)
+		{
+			lblMessage.setText("verify the book ISBN and Member ID. checkIn could not be completed");
+			return false;
+		}
+		if (txtCheckoutSummary.getText().length()==0)
+		{
+		
+			lblMessage.setText("verify the book ISBN and Member ID. checkIn could not be completed");
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
 	public void BookCheckOut(ActionEvent action)
 	{
 		lblMessage.setText("");
@@ -167,27 +191,38 @@ public class LibrarianTasksUI implements Initializable{
 		else
 		{
 			
-			lblMessage.setText("Can not do a check out. Select valid Book and member to issue out");
+			lblMessage.setText("Can not check out. Select valid Book and member to continue");
 		}
 		
 	}
 	
 	public void BookCheckIn(ActionEvent action)
 	{
-			
-		
-		
+		lblMessage.setText("");
+		if (verifyCheckOut()) {
+			l.returnBook(txtISBN.getText());
+			lblMessage.setText("CheckIn successful. ");
+			System.out.println(l.getAllMembers());
+			System.out.println("\n Books");
+			System.out.println(admin.showBooks().toString());
+			history_table.setItems(getCheckoutEntry());
+		}
+		else {
+			lblMessage.setText("Can not checkIn. Select valid Book and member to continue");
+		}			
 	}
+	
+
 	public void goToLogin() throws IOException {
 		Main m = new Main();
 		m.changeScene("Login.fxml");
 	}
+	
 	public void goToAddAdminRoles() throws IOException {
 		Main m = new Main();
 		m.changeScene("Admin.fxml");
 	}
 	
-
 	public void SearchBook(ActionEvent action)
 	{
 		lblMessage.setText("");
@@ -218,7 +253,6 @@ public class LibrarianTasksUI implements Initializable{
 		//System.out.println("search tested");
 		createSummary();
 	}
-	
 	
 	public void SearchMember(ActionEvent action)
 	{
