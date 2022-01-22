@@ -77,11 +77,14 @@ public final class Admin extends Stuff implements Serializable{
 		return db.readBooksMap();
 	}
 	
-	public void addBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList) {
+	public void addBook(String iSBN, String thatTitle, int numberOfCopies, 
+							List<Author> authorList, int maxBorrowDate) {
+		
 //		allBooks.add(thisBook);
 //		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList);
 		
-		db.addNewBook(iSBN, thatTitle, numberOfCopies, authorList);		
+		db.addNewBook(iSBN, thatTitle, numberOfCopies, 
+								authorList, maxBorrowDate);		
 	}
 	
 	public void removeBook(String iSBN) {

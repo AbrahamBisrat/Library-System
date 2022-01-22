@@ -24,7 +24,7 @@ public class Controller {
 		
 		Address ad = new Address("10034 street", "fairfield", "IA", "52557");
 		
-		//adminSideTests(c, ad);
+		adminSideTests(c, ad);
 		
 		librarianSideTests(c);
 		
@@ -87,7 +87,7 @@ public class Controller {
 		System.out.println("	Books before add \n");
 		System.out.println(c.admin.showBooks());
 
-		c.admin.addBook("23544", "Effective Java", 12, authors);
+		c.admin.addBook("23544", "Effective Java", 12, authors, 21);
 		
 		System.out.println("Books after add\n" + c.admin.showBooks());
 		

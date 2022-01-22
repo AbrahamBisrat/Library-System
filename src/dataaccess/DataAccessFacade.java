@@ -155,10 +155,10 @@ public class DataAccessFacade implements DataAccess {
 	}
 
 	@Override public void addNewBook(String iSBN, String thatTitle, 
-			int numberOfCopies, List<Author> authorList) {
+			int numberOfCopies, List<Author> authorList, int maxDate) {
 		
 		HashMap<String, Book> booksTable = readBooksMap();
-		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList);
+		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList, maxDate);
 		
 		booksTable.put(newBook.getISBN(), newBook);
 		System.out.println(booksTable);

@@ -17,9 +17,11 @@ public final class Book implements Serializable{
 	private List<Author> authors = new ArrayList<>();
 	private int currentlyAvailable;
 	private int maxCheckouts;
+	private int maxBorrowDate;
+
 	
 	public Book(String isbn, String thatTitle, int numOfCopies,
-			List<Author> authorList) {
+			List<Author> authorList, int maxDate) {
 		
 		title = thatTitle;
 		iSBN = isbn;
@@ -28,6 +30,11 @@ public final class Book implements Serializable{
 		authors.addAll(authorList);
 		checkoutList = new ArrayList<>();
 		maxCheckouts = numOfCopies;
+		maxBorrowDate = maxDate;
+	}
+	
+	public int getMaxBorrowDate() {
+		return maxBorrowDate;
 	}
 	
 	public int getMaxCheckouts() {

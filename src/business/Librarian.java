@@ -35,6 +35,9 @@ public final class Librarian extends Stuff implements Serializable{
 	
 	public void returnBook(String iSBN) { // number of copies, availablity
 		Book thisBook = getBookWithISBN(iSBN);
+		if(thisBook == null)
+			return;
+		
 		for(CheckoutEntry e : thisBook.getBorrowersList())
 			if(e.getBook().equals(thisBook))
 				e.returned();

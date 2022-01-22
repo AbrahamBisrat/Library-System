@@ -13,9 +13,9 @@ public interface DataAccess {
 	public LibraryMember removeMember(String memId);
 	public void addMember(String memId, String fName, String lName, 
 								String phoneNum, Address address);
-//	void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
-//	void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
-	public void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);
+
+	public void addNewBook(String iSBN, String thatTitle, 
+			int numberOfCopies, List<Author> authorList, int maxDate);
 	public void removeBook(String iSBN);
 	public void updateBook(Book b);
 	public void updateMember(LibraryMember m);
