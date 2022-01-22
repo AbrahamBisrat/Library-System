@@ -1,5 +1,5 @@
 
-##     >>>   LIBRARY MANAGEMENT SYSTEM   <<<
+#     >>>   LIBRARY MANAGEMENT SYSTEM   <<<
 
-#  Fully implemented using Java and JavaFx
+##  Fully implemented using Java and JavaFx
 
