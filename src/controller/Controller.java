@@ -28,7 +28,7 @@ public class Controller {
 		
 		librarianSideTests(c);
 		
-		
+		System.out.println(c.db.readUserMap());
 		
 		// days calculation		
 	}
@@ -36,7 +36,7 @@ public class Controller {
 	private static void librarianSideTests(Controller c) {
 //		Librarian lib = new Librarian("lib2342", "front desk", "reception");
 		
-		Librarian lib = c.admin.addLibrarian("lib2342", "front desk", "reception");
+		Librarian lib = c.admin.addLibrarian("lib2342", "lib_userName", "front desk", "reception");
 		
 		System.out.println("\n		Checkout and return tests");
 		

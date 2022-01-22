@@ -49,9 +49,12 @@ public final class Admin extends Stuff implements Serializable{
 		return true;
 	}
 	
-	public Librarian addLibrarian(String libId, String fName,
-						String lName) {
-		return new Librarian(libId, fName, lName);
+	public Librarian addLibrarian(String libId, String username,
+			String fName, String lName) {
+		
+		Librarian newLib = new Librarian(libId, fName, lName);
+		db.addLibrarian(libId, username);
+		return newLib;
 	}
 	
 	public static HashMap<String, LibraryMember> getAllMembers() {
@@ -82,14 +85,14 @@ public final class Admin extends Stuff implements Serializable{
 	@Override public String toString() {
 		return getDetails();
 	}
-
+	
 	@Override public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + Objects.hash(password, username);
 		return result;
 	}
-
+	
 	@Override public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

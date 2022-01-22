@@ -151,7 +151,6 @@ public class DataAccessFacade implements DataAccess {
 		LibraryMember newMember = 
 				new LibraryMember(memId, fName, lName, phoneNum, address);
 		
-		// adding entry to database
 		saveNewMember(newMember);
 	}
 
@@ -208,6 +207,15 @@ public class DataAccessFacade implements DataAccess {
 		}
 		
 		saveToStorage(StorageType.BOOKS, books);
+	}
+
+	
+	@Override public void addLibrarian(String libId, String username) {
+//		User lib = new User(libId, username, Auth.LIBRARIAN);
+//		
+//		HashMap<String, User> users = readFromStorage(StorageType.USERS);
+		
+		
 	}
 	
 	

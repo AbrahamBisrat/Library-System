@@ -15,7 +15,7 @@ public final class Librarian extends Stuff implements Serializable{
 	Auth role = Auth.LIBRARIAN;
 	private DataAccess dbLib = new DataAccessFacade();
 	
-	public Librarian(String libId, String fName, String lName) {
+	Librarian(String libId, String fName, String lName) {
 		super(fName, lName, Auth.LIBRARIAN);
 	}
 	
@@ -70,11 +70,6 @@ public final class Librarian extends Stuff implements Serializable{
 	public HashMap<String, LibraryMember> getAllMembers() {
 		return dbLib.readMemberMap();
 	}
-	
-	// Caution! Fancy code ahead
-	// has not been fully implemented yet
-	
-	
 	
 	@Override public String getDetails() { 
 		return "From Library Object : " + super.getDetails();  

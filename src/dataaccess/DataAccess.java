@@ -19,4 +19,5 @@ public interface DataAccess {
 	public void removeBook(String iSBN);
 	public void updateBook(Book b);
 	public void updateMember(LibraryMember m);
+	public void addLibrarian(String libId, String username);
 }

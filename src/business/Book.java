@@ -16,7 +16,7 @@ public final class Book implements Serializable{
 	List<CheckoutEntry> checkoutList; 
 	private List<Author> authors = new ArrayList<>();
 	private int numberOfCopies;
-	
+	private int totalBooks;
 	
 	public Book(String isbn, String thatTitle, int numOfCopies,
 			List<Author> authorList) {
@@ -27,6 +27,11 @@ public final class Book implements Serializable{
 		availablity = true;
 		authors.addAll(authorList);
 		checkoutList = new ArrayList<>();
+		totalBooks = numOfCopies;
+	}
+	
+	public int getTotalBooks() {
+		return totalBooks;
 	}
 	
 	public List<Author> getAuthors(){
