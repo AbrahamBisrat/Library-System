@@ -4,22 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="712.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LibrarianTasksUI">
+<AnchorPane prefHeight="712.0" prefWidth="1019.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LibrarianTasksUI">
    <children>
       <Button layoutX="-238.0" layoutY="-187.0" mnemonicParsing="false" text="Button" />
-      <TabPane id="panelLibraianTasks" fx:id="librianActions" layoutX="20.0" layoutY="153.0" prefHeight="389.0" prefWidth="946.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane id="panelLibraianTasks" fx:id="librianActions" layoutX="20.0" layoutY="154.0" prefHeight="388.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Checkout Book">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea id="txtCheckOutSummary" fx:id="txtCheckoutSummary" layoutX="29.0" layoutY="37.0" prefHeight="103.0" prefWidth="527.0" />
+                        <TextArea id="txtCheckOutSummary" fx:id="txtCheckoutSummary" layoutX="30.0" layoutY="38.0" prefHeight="187.0" prefWidth="527.0" />
                         <Label layoutX="30.0" layoutY="14.0" prefHeight="17.0" prefWidth="94.0" text="Summnary" />
-                        <Button fx:id="btnCheckoutBook" layoutX="30.0" layoutY="168.0" mnemonicParsing="false" onAction="#BookCheckOut" prefHeight="25.0" prefWidth="95.0" text="Checkout" />
+                        <Button fx:id="btnCheckoutBook" layoutX="410.0" layoutY="283.0" mnemonicParsing="false" onAction="#BookCheckOut" prefHeight="25.0" prefWidth="95.0" text="Checkout" />
                      </children>
                   </AnchorPane>
             </content>
@@ -35,20 +37,34 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Issued Out Books">
+            <Tab text="History">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="1026.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="1026.0">
+                     <children>
+                        <TableView layoutX="-3.0" layoutY="1.0" prefHeight="356.0" prefWidth="970.0">
+                          <columns>
+                              <TableColumn fx:id="col_sn" prefWidth="22.0" text="s.n" />
+                            <TableColumn fx:id="col_checkoutDate" prefWidth="90.0" text="Checkout Date" />
+                            <TableColumn fx:id="col_checkinDate" prefWidth="82.0" text="Checkin Date" />
+                              <TableColumn fx:id="col_bookTitle" prefWidth="303.0" text="Book Title" />
+                              <TableColumn fx:id="col_iSBN" prefWidth="53.0" text="iSBN" />
+                              <TableColumn fx:id="col_memberId" prefWidth="110.0" text="Member id" />
+                              <TableColumn fx:id="col_memberName" minWidth="0.0" prefWidth="244.0" text="Member Name" />
+                              <TableColumn fx:id="col_returned" prefWidth="65.0" text="Returned?" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
       </TabPane>
       <TextField id="txtISBN" fx:id="txtISBN" layoutX="20.0" layoutY="29.0" onAction="#SearchBook" prefHeight="25.0" prefWidth="392.0" promptText="Search Book By ISBN" />
       <TextArea id="txtBookDetails" fx:id="txtBookDetails" layoutX="19.0" layoutY="66.0" prefHeight="69.0" prefWidth="392.0" />
-      <TextField id="txtMemberID" fx:id="txtMemberID" layoutX="576.0" layoutY="28.0" onAction="#SearchMember" prefHeight="25.0" prefWidth="392.0" promptText="Search Member ID" />
-      <TextArea id="txtMemberDetails" fx:id="txtMemberDetails" layoutX="575.0" layoutY="65.0" prefHeight="69.0" prefWidth="392.0" />
-      <Button id="btnClear" fx:id="btnClear" layoutX="457.0" layoutY="31.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="61.0" text="Clear" />
+      <TextField id="txtMemberID" fx:id="txtMemberID" layoutX="517.0" layoutY="29.0" onAction="#SearchMember" prefHeight="25.0" prefWidth="471.0" promptText="Search Member ID" />
+      <TextArea id="txtMemberDetails" fx:id="txtMemberDetails" layoutX="517.0" layoutY="66.0" prefHeight="69.0" prefWidth="471.0" />
+      <Button id="btnClear" fx:id="btnClear" layoutX="422.0" layoutY="29.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="61.0" text="Clear" />
       <Label id="lblMessage" fx:id="lblMessage" layoutX="48.0" layoutY="576.0" text="Label" />
-      <Button id="btnAdminRoles" fx:id="btnAdminRoles" layoutX="857.0" layoutY="620.0" mnemonicParsing="false" onAction="#goToAddAdminRoles" prefHeight="25.0" prefWidth="87.0" text="Admin Roles" />
-      <Button id="btnLogout" fx:id="btnLogout" layoutX="974.0" layoutY="1.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="70.0" text="Logout" />
+      <Button id="btnAdminRoles" fx:id="btnAdminRoles" layoutX="652.0" layoutY="572.0" mnemonicParsing="false" onAction="#goToAddAdminRoles" prefHeight="25.0" prefWidth="87.0" text="Admin Roles" />
+      <Button id="btnLogout" fx:id="btnLogout" layoutX="920.0" layoutY="572.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="70.0" text="Logout" />
    </children>
 </AnchorPane>

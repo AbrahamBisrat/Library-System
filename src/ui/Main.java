@@ -20,12 +20,18 @@ public class Main extends Application{
 		primaryStage.setResizable(true);
 		Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 		primaryStage.setTitle("Library System");
-		primaryStage.setScene(new Scene(root, 800,  500));
+		primaryStage.setScene(new Scene(root, 800,  400));
 		primaryStage.show();
 	}
 
 	public void changeScene(String fxml) throws IOException {
 		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+		usableStage.getScene().setRoot(pane);
+	}
+	public void changeScene(String fxml, int x, int y) throws IOException {
+		Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+		usableStage.setWidth(y);
+		usableStage.setHeight(x);
 		usableStage.getScene().setRoot(pane);
 	}
 }

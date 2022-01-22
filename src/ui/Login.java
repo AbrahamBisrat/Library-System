@@ -42,7 +42,7 @@ public class Login {
 			LoggedIn.roles = 1;
 		}
 		else if (role.equals(Auth.LIBRARIAN)) {
-			m.changeScene("LibrarianTasks.fxml");
+			m.changeScene("LibrarianTasks.fxml", 700, 1000);
 			LoggedIn.roles = 2;
 		}
 		else if (role.equals(Auth.BOTH)) {
