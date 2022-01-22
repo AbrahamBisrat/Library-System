@@ -15,7 +15,7 @@ public final class Librarian extends Stuff implements Serializable{
 	Auth role = Auth.LIBRARIAN;
 	private DataAccess dbLib = new DataAccessFacade();
 	
-	Librarian(String libId, String fName, String lName) {
+	public Librarian(String libId, String fName, String lName) {
 		super(fName, lName, Auth.LIBRARIAN);
 	}
 	
@@ -52,7 +52,7 @@ public final class Librarian extends Stuff implements Serializable{
 		dbLib.updateBook(b);
 	}
 
-	private LibraryMember getMemberWithId(String memId) {
+	public LibraryMember getMemberWithId(String memId) {
 		try {
 			return dbLib.readMemberMap().get(memId);
 		}
@@ -61,7 +61,7 @@ public final class Librarian extends Stuff implements Serializable{
 		}
 	}
 	
-	private Book getBookWithISBN(String iSBN) {
+	public Book getBookWithISBN(String iSBN) {
 		try {
 			return dbLib.readBooksMap().get(iSBN);
 		}

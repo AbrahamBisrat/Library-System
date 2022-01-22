@@ -103,9 +103,13 @@ public class TestData {
     @SuppressWarnings("serial")
     List<User> allUsers = new ArrayList<User>() {
         {
-            add(new User("101", "xyz", Auth.LIBRARIAN));
-            add(new User("102", "abc", Auth.ADMIN));
-            add(new User("103", "111", Auth.BOTH));
+//        	  add(new User("101", "xyz", Auth.LIBRARIAN));
+//            add(new User("102", "abc", Auth.ADMIN));
+//            add(new User("103", "111", Auth.BOTH));
+            add(new User("s", "s", Auth.LIBRARIAN));
+            add(new User("a", "a", Auth.ADMIN));
+            add(new User("f", "f", Auth.BOTH));
+            
         }
     };
 }
