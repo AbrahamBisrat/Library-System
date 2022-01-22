@@ -22,7 +22,7 @@ public final class Librarian extends Stuff implements Serializable{
 	public boolean checkout(String iSBN, String memberId) {
 		Book thisBook = getBookWithISBN(iSBN);
 		LibraryMember borrower = getMemberWithId(memberId);
-		if( thisBook == null || thisBook.getCopies() <= 0 || borrower == null)
+		if(thisBook == null || thisBook.getCopies() <= 0 || borrower == null)
 			return false;
 		CheckoutEntry checkout = 
 				new CheckoutEntry(borrower, thisBook);

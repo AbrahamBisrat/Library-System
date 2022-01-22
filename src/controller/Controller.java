@@ -57,6 +57,8 @@ public class Controller {
 		System.out.println("\n\n\t Checking Returns ");
 		lib.returnBook("99-22223");
 		System.out.println(c.admin.showBooks());
+		c.admin.addCopy("99-22223", 8);
+		System.out.println(Admin.getAllBooks());
 	}
 
 	private static void adminSideTests(Controller c, Address ad) {

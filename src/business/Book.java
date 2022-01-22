@@ -15,23 +15,28 @@ public final class Book implements Serializable{
 	private boolean availablity;
 	List<CheckoutEntry> checkoutList; 
 	private List<Author> authors = new ArrayList<>();
-	private int numberOfCopies;
-	private int totalBooks;
+	private int currentlyAvailable;
+	private int maxCheckouts;
 	
 	public Book(String isbn, String thatTitle, int numOfCopies,
 			List<Author> authorList) {
 		
 		title = thatTitle;
 		iSBN = isbn;
-		numberOfCopies = numOfCopies;
+		currentlyAvailable = numOfCopies;
 		availablity = true;
 		authors.addAll(authorList);
 		checkoutList = new ArrayList<>();
-		totalBooks = numOfCopies;
+		maxCheckouts = numOfCopies;
 	}
 	
-	public int getTotalBooks() {
-		return totalBooks;
+	public int getMaxCheckouts() {
+		return maxCheckouts;
+	}
+	
+	public void addToMax(int max) {
+		maxCheckouts += max;
+		currentlyAvailable += max;
 	}
 	
 	public List<Author> getAuthors(){
@@ -75,19 +80,20 @@ public final class Book implements Serializable{
 	}
 
 	public void addCopy() {
-		numberOfCopies++;
+		currentlyAvailable++;
+		maxCheckouts++;
 	}
 	
 	public void returnCopy() {
-		numberOfCopies++;
+		currentlyAvailable++;
 	}
 	
 	public void checkoutCopy() {
-		numberOfCopies--;
+		currentlyAvailable--;
 	}
 	
 	public int getCopies() {
-		return numberOfCopies;
+		return currentlyAvailable;
 	}
 	
 	@Override public String toString() {
@@ -95,7 +101,8 @@ public final class Book implements Serializable{
 				+ ", iSBN=" + iSBN 
 				+ ", availablity=" + availablity 
 				+ ", authors=" + authors 
-				+ ", numberOfCopies=" + numberOfCopies 
+				+ ", Total Available = " + maxCheckouts
+				+ ", currentlyAvailable=" + currentlyAvailable 
 				+ ", checkoutList=" + checkoutList 
 				+ "]\n";
 	}

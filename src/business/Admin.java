@@ -49,6 +49,18 @@ public final class Admin extends Stuff implements Serializable{
 		return true;
 	}
 	
+	public boolean addCopy(String iSBN, int thisAmount) {
+		try {
+			Book thisBook = db.readBooksMap().get(iSBN);
+			thisBook.addToMax(thisAmount);
+			db.updateBook(thisBook);
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
+	
 	public Librarian addLibrarian(String libId, String username,
 			String fName, String lName) {
 		
