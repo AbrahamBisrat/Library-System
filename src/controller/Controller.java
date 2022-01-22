@@ -12,7 +12,7 @@ import dataaccess.TestData;
 public class Controller {
 	
 	Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
-	DataAccess db = new DataAccessFacade(); 
+	DataAccess db = new DataAccessFacade();
 	Librarian lib;
 	LibraryMember mem;
 	Address addr;
@@ -26,15 +26,23 @@ public class Controller {
 		
 		//adminSideTests(c, ad);
 		
+		librarianSideTests(c);
 		
 		
-		Librarian lib = new Librarian("front desk", "reception");
+		
+		// days calculation		
+	}
 
+	private static void librarianSideTests(Controller c) {
+//		Librarian lib = new Librarian("lib2342", "front desk", "reception");
+		
+		Librarian lib = c.admin.addLibrarian("lib2342", "front desk", "reception");
+		
 		System.out.println("\n		Checkout and return tests");
 		
 		// let's see members and books
-//		System.out.println(c.admin.showBooks());
-//		System.out.println(Admin.getAllMembers());
+		System.out.println(c.admin.showBooks());
+		System.out.println(Admin.getAllMembers());
 		
 		lib.checkout("99-22223", "1001");
 		
@@ -42,28 +50,13 @@ public class Controller {
 		System.out.println(c.admin.getdb().readMemberMap().get("1001"));
 		System.out.println(c.admin.getdb().readBooksMap().get("99-22223"));
 		
-//		System.out.println("\n After checkout of  '99-22223' by '1001'\n");
-//		System.out.println(c.admin.showBooks());
-//		System.out.println(Admin.getAllMembers());
+		System.out.println("\n After checkout of  '99-22223' by '1001'\n");
+		System.out.println(c.admin.showBooks());
+		System.out.println(Admin.getAllMembers());
 		
-		
-//		Book thisBook = Book.catalog.get(0);
-//		System.out.println("Checking in....");
-//		System.out.println("Member : " + thisGuy);
-//		System.out.println("Book : " + thisBook);
-//		
-//		lib.checkout(thisBook, thisGuy);
-//		
-//		System.out.println("\n\nAfter Checkouts");
-//		
-//		System.out.println(Librarian.allCheckouts.size());
-//		
-//		System.out.println(Librarian.allCheckouts.toString());
-////		System.out.println("Book : " + thisBook);
-
-		
-		
-		// days calculation		
+		System.out.println("\n\n\t Checking Returns ");
+		lib.returnBook("99-22223");
+		System.out.println(c.admin.showBooks());
 	}
 
 	private static void adminSideTests(Controller c, Address ad) {

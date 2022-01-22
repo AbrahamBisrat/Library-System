@@ -15,30 +15,30 @@ public final class Librarian extends Stuff implements Serializable{
 	Auth role = Auth.LIBRARIAN;
 	private DataAccess dbLib = new DataAccessFacade();
 	
-	public Librarian(String fName, String lName) {
+	public Librarian(String libId, String fName, String lName) {
 		super(fName, lName, Auth.LIBRARIAN);
 	}
 	
-	public void checkout(String iSBN, String memberId) {
+	public boolean checkout(String iSBN, String memberId) {
 		Book thisBook = getBookWithISBN(iSBN);
 		LibraryMember borrower = getMemberWithId(memberId);
-		
-		if(thisBook == null || borrower == null)
-			return;
-		
+		if( thisBook == null || thisBook.getCopies() <= 0 || borrower == null)
+			return false;
 		CheckoutEntry checkout = 
 				new CheckoutEntry(borrower, thisBook);
+		thisBook.checkoutCopy();
 		
-		System.out.println("from Checkout method : ");
-		System.out.print(borrower.toString());
-		System.out.print(thisBook);
-		System.out.print(checkout);
-		
-		// updating database
-//		thisBook.checkoutList = null;
-//		thisBook.checkoutDebugging();
 		updateBookInDB(thisBook);
 		updateMemberInDB(borrower);
+		return true;
+	}
+	
+	public void returnBook(String iSBN) { // number of copies, availablity
+		Book thisBook = getBookWithISBN(iSBN);
+		for(CheckoutEntry e : thisBook.getBorrowersList())
+			if(e.getBook().equals(thisBook))
+				e.returned();
+		updateBookInDB(thisBook);	// update user info as well
 	}
 	
 	private void updateMemberInDB(LibraryMember m) {
@@ -74,12 +74,7 @@ public final class Librarian extends Stuff implements Serializable{
 	// Caution! Fancy code ahead
 	// has not been fully implemented yet
 	
-	public void returnBook(Book thisOne) {
-//		for(LibraryMember eachMember : dbLib.readBooksMap().values())
-//			for(CheckoutEntry everyCheckout : eachBook.getCheckouts())
-//				if(everyCheckout.getBook().equals(thisOne))
-//					everyCheckout.returned();
-	}
+	
 	
 	@Override public String getDetails() { 
 		return "From Library Object : " + super.getDetails();  

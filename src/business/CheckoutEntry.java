@@ -35,7 +35,7 @@ public final class CheckoutEntry implements Serializable{
 			return null;
 		return returnDate;
 	}
-
+	
 	public Book getBook() {
 		return book;
 	}
@@ -51,6 +51,8 @@ public final class CheckoutEntry implements Serializable{
 	public void returned() {
 		returnDate = LocalDate.now();
 		returned = true;
+		book.makeAvailable();
+		book.returnCopy();
 	}
 	
 	@Override public String toString() {
@@ -61,11 +63,11 @@ public final class CheckoutEntry implements Serializable{
 				+ ", returned=" + returned 
 				+ "]";
 	}
-
+	
 	@Override public int hashCode() {
 		return Objects.hash(book, checkoutDate, member);
 	}
-
+	
 	@Override public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

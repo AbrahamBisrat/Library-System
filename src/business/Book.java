@@ -17,7 +17,6 @@ public final class Book implements Serializable{
 	private List<Author> authors = new ArrayList<>();
 	private int numberOfCopies;
 	
-	// revise availablity logic
 	
 	public Book(String isbn, String thatTitle, int numOfCopies,
 			List<Author> authorList) {
@@ -30,24 +29,10 @@ public final class Book implements Serializable{
 		checkoutList = new ArrayList<>();
 	}
 	
-	public Book(String isbn, String thatTitle, int numOfCopies,
-			List<Author> authorList, List<CheckoutEntry> previousCheckouts) {
-		
-		title = thatTitle;
-		iSBN = isbn;
-		numberOfCopies = numOfCopies;
-		availablity = true;
-		authors.addAll(authorList);
-		checkoutList = previousCheckouts;
-	}
-	
 	public List<Author> getAuthors(){
 		return authors;
 	}
 	
-	public void checkoutDebugging() {
-		checkoutList.clear();
-	}
 	public String getISBN() {
 		return iSBN;
 	}
@@ -86,6 +71,14 @@ public final class Book implements Serializable{
 
 	public void addCopy() {
 		numberOfCopies++;
+	}
+	
+	public void returnCopy() {
+		numberOfCopies++;
+	}
+	
+	public void checkoutCopy() {
+		numberOfCopies--;
 	}
 	
 	public int getCopies() {

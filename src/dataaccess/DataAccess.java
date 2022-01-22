@@ -10,7 +10,7 @@ public interface DataAccess {
 	public HashMap<String, User> readUserMap();
 	public HashMap<String, LibraryMember> readMemberMap();
 	public void saveNewMember(LibraryMember member);
-	public void removeMember(String memId);
+	public LibraryMember removeMember(String memId);
 	public void addMember(String memId, String fName, String lName, 
 								String phoneNum, Address address);
 //	void addNewBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList);

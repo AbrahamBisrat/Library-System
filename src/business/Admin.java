@@ -39,26 +39,29 @@ public final class Admin extends Stuff implements Serializable{
 		db.addMember(memId, fName, lName, phoneNum, address);
 	}
 	
-	// this implementation needs to change, delete by name or id
 	public boolean removeMember(String memId) {
-		db.removeMember(memId);
-//		if(!membersList.contains(removeThisMember))
-//			return false;
-//		
-//		membersList.remove(removeThisMember);
-		return true;  // review this
+		LibraryMember thisMember = db.removeMember(memId);
+		
+		if(thisMember == null)
+			return false;
+		
+		thisMember = null;
+		return true;
+	}
+	
+	public Librarian addLibrarian(String libId, String fName,
+						String lName) {
+		return new Librarian(libId, fName, lName);
 	}
 	
 	public static HashMap<String, LibraryMember> getAllMembers() {
 		return db.readMemberMap();
-//		return membersList;
 	}
 	
 	public static HashMap<String, Book> getAllBooks() {
 		return db.readBooksMap();
 	}
 	
-	// Book(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList)
 	public void addBook(String iSBN, String thatTitle, int numberOfCopies, List<Author> authorList) {
 //		allBooks.add(thisBook);
 //		Book newBook = new Book(iSBN, thatTitle, numberOfCopies, authorList);
@@ -72,33 +75,6 @@ public final class Admin extends Stuff implements Serializable{
 	
 	public HashMap<String, Book> showBooks(){
 		return db.readBooksMap();
-	}
-	
-	public String checkoutHistory() {
-//		String historyIntro = "\n\n History of Every Checkout \n";
-//		
-//		String messageBody = "";
-//		
-////		System.out.println(TEXT_RED + "This text is red!" + TEXT_RESET);
-//		
-//		for(LibraryMember eachMember : getAllMembers()) {
-//			String everyUsersHistory = "";
-//			for(CheckoutEntry e : eachMember.getCheckouts()) {
-//				everyUsersHistory += "[ " + e.getMember().getName() 
-//						+ "  borrowed : " + e.getBook().getTitle() 
-//						+ "  on : " + e.getCheckoutDate()
-//						+ ((e.isItReturned()) ? 
-//								(Utils.TEXT_GREEN + " returned on : " + e.getReturnedDate() + " ]" + Utils.TEXT_RESET) 
-//								: (Utils.TEXT_RED + " not returned!" + Utils.TEXT_RESET + " ]")) 
-//						+ "\n";
-//			}
-//			messageBody += everyUsersHistory;
-//		}
-//		if(messageBody.equals(""))
-//			messageBody = "No data found";
-//		
-//		return historyIntro + messageBody;
-		return null;
 	}
 	
 	public DataAccess getdb() { return db; }
