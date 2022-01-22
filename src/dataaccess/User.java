@@ -35,5 +35,6 @@ final public class User implements Serializable {
 		User user = new User("Abraham", "234234", Auth.ADMIN);
 		
 		System.out.println(user);
+		System.out.println(user.getAuthorization());
 	}
 }

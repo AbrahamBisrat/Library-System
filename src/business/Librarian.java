@@ -75,6 +75,7 @@ public final class Librarian extends Stuff implements Serializable{
 		return "From Library Object : " + super.getDetails();  
 	}
 	
+	
 	@Override public String toString() {
 		return getDetails();
 	}
