@@ -18,4 +18,20 @@ public class AdminUI {
 		Main m = new Main();
 		m.changeScene("login.fxml");
 	}
+	
+	public void goToAddBook() {
+		// nothing yet
+	}
+	
+	public void goToAddLibraryMember() {
+		// nothing yet
+	}
+	
+	public void goToAddLibraryStaff() {
+		// nothing yet
+	}
+	
+	public void goToAddLibrarianRoles() {
+		// nothing yet
+	}
 }

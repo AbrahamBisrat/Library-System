@@ -2,11 +2,14 @@ package ui;
 
 import java.io.IOException;
 
+import business.Credentials;
+import dataaccess.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 
 public class Login {
 	
@@ -30,26 +33,27 @@ public class Login {
 	private void checkLogin() throws IOException{
 		Main m = new Main();
 		
-		String adminUsername = "a";
-		String adminPassword = "a";
-		
-		String librarianUsername = "s";
-		String librarianPassword = "s";
+		String username = userName.getText();
+		String password = passwordField.getText();
+				
+		Auth role = 
+			Credentials.whoIsThisUser(username, password);
 		
 		
 		// you can use a list and contains method for the real side
-		if(userName.getText().toString().equals(adminUsername) 
-				&& passwordField.getText().toString().equals(adminPassword)) {
+		if(role.equals(Auth.ADMIN)) {
 			wrongLogin.setText("Sucess!");
 			
 			m.changeScene("Admin.fxml");
 		}
-		else if(userName.getText().toString().equals(librarianUsername) 
-				&& passwordField.getText().toString().equals(librarianPassword)) {
+		else if(role.equals(Auth.LIBRARIAN)) {
 			
 			wrongLogin.setText("Welcome Librarian");
 			
 			m.changeScene("Librarian.fxml");
+		}
+		else if(role.equals(Auth.BOTH)) {
+			System.out.println("That has not been implemented yet");
 		}
 		else {
 			userName.setText("");

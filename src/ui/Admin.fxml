@@ -18,7 +18,7 @@
             <Button id="btnNewBook" layoutX="8.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddBook" prefHeight="25.0" prefWidth="113.0" text="Add New Book" />
             <Button id="btnNewMember" layoutX="191.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryMember" text="New Member" />
             <Button id="btnNewStaff" layoutX="357.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryStaff" text="Manage Staff" />
-            <Button id="btnLibRole" fx:id="btnLibRoles" layoutX="487.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToAddLibrarianRoles" text="Librarian Role" />
+            <!-- <Button id="btnLibRole" fx:id="btnLibRoles" layoutX="487.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToAddLibrarianRoles" text="Librarian Role" /> -->
          </children>
       </AnchorPane>
    </top>
