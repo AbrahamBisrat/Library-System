@@ -2,18 +2,21 @@ package ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
-import business.Admin;
-import business.Book;
-import business.Librarian;
-import business.LibraryMember;
+import business.*;
 import dataaccess.Auth;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,62 +27,60 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class LibrarianTasksUI implements Initializable{
 	
-	@FXML
-    private TextField txtFirstname;
-    @FXML
-    private TextField txtLastname;
-    @FXML
-    private TextField txtEmail;
+	@FXML private TextField txtFirstname;
+    @FXML private TextField txtLastname;
+    @FXML private TextField txtEmail;
   
-  
-    @FXML
-    TableView tblData;
+    
+    @FXML TabPane librianActions;
+	@FXML TextField txtISBN;
+	@FXML TextField txtMemberID;
+	
+	@FXML TextArea txtMemberDetails;
+	@FXML TextArea txtBookDetails;
+	@FXML TextArea txtCheckoutSummary;
+	@FXML TextArea txtCheckinSummary;
+	
+	@FXML Label lblMessage;
+	
+	@FXML Button btnCheckoutBook;
+	@FXML Button btnAdminRoles;
+	@FXML Button btnLogout;
+	@FXML Button btnCheckinBook;
+	@FXML Button btnClear;
 	
 	
-	@FXML
-	TabPane librianActions;
-	
-	@FXML 
-	TextField txtISBN;
-	
-	@FXML 
-	TextField txtMemberID;
-	@FXML 
-	TextArea txtMemberDetails;
-	@FXML 
-	TextArea txtBookDetails;
-	@FXML 
-	Button btnCheckoutBook;
-	
-	@FXML 
-	Button btnAdminRoles;
-	
-	@FXML 
-	Button btnLogout;
-	
-	@FXML 
-	Button btnCheckinBook;
-	
-	@FXML
-	Button btnClear;
-	
-	@FXML
-	TextArea txtCheckoutSummary;
+	@FXML TableView<CheckoutEntry> history_table;
+	@FXML TableColumn<CheckoutEntry, String> col_ac;
+	@FXML TableColumn<CheckoutEntry, LocalDate> col_checkoutDate;
+	@FXML TableColumn<CheckoutEntry, LocalDate> col_checkinDate;
+	@FXML TableColumn<CheckoutEntry, String> col_bookTitle;
+	@FXML TableColumn<CheckoutEntry, String> col_iSBN;
+	@FXML TableColumn<CheckoutEntry, String> col_memberId;
+	@FXML TableColumn<CheckoutEntry, String> col_memberName;
+	@FXML TableColumn<CheckoutEntry, Boolean> col_returned;
 	
 	public Librarian l;
-	
-	@FXML
-	TextArea txtCheckinSummary;
-	
-	@FXML
-	Label lblMessage;
 	
 	Admin admin = new Admin(" >>> Mr.", "XYZ", Auth.ADMIN, "admin", "admin");
 
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+	public ObservableList<CheckoutEntry> getCheckoutEntry(){
+		ObservableList<CheckoutEntry> checkoutEntries = FXCollections.observableArrayList();
+		HashMap<String, Book> allBooks = admin.getAllBooks();
+		
+		for(Book b : allBooks.values())
+			for(CheckoutEntry c : b.getCheckoutList())
+				checkoutEntries.add(c);
+		
+		System.out.println("\n\n\n checkoutEntries" + checkoutEntries);
+		
+		return checkoutEntries;
+	}
+	
+	
+	@Override public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		l = new Librarian("lib", "lib","Lib");
 		//txtBookDetails.setText("No Book Selected");
 		System.out.println(l.getAllMembers());
@@ -99,7 +100,27 @@ public class LibrarianTasksUI implements Initializable{
 		txtMemberDetails.setEditable(false);
 		txtCheckoutSummary.setEditable(false);
 
+		// history table view
+//		col_ac.setCellValueFactory(new PropertyValueFactory<>("currentlyAvailableBooks"));
+		col_checkoutDate.setCellValueFactory(new PropertyValueFactory<>("checkoutDate"));
+		col_checkinDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+		col_bookTitle.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
+		col_iSBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+		col_memberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+		col_memberName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+		col_returned.setCellValueFactory(new PropertyValueFactory<>("returned"));
 		
+		history_table.setItems(getCheckoutEntry());
+		
+		history_table.getColumns().addAll(
+				col_checkoutDate,
+				col_checkinDate,
+				col_bookTitle,
+				col_iSBN,
+				col_memberId,
+				col_memberName,
+				col_returned
+				);
 	}
 
 	
@@ -141,6 +162,7 @@ public class LibrarianTasksUI implements Initializable{
 			System.out.println(l.getAllMembers());
 			System.out.println("\n Books");
 			System.out.println(admin.showBooks().toString());
+			history_table.setItems(getCheckoutEntry());
 		}
 		else
 		{
@@ -246,8 +268,4 @@ public class LibrarianTasksUI implements Initializable{
 		txtCheckinSummary.clear();
 		txtCheckoutSummary.clear();
 	} 	
-	
-	
-	
-
 }

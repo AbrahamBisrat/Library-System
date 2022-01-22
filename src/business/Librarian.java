@@ -38,7 +38,7 @@ public final class Librarian extends Stuff implements Serializable{
 		if(thisBook == null)
 			return;
 		
-		for(CheckoutEntry e : thisBook.getBorrowersList())
+		for(CheckoutEntry e : thisBook.getCheckoutList())
 			if(e.getBook().equals(thisBook))
 				e.returned();
 		updateBookInDB(thisBook);	// update user info as well

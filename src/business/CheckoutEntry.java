@@ -8,11 +8,15 @@ import java.util.Objects;
 
 public final class CheckoutEntry implements Serializable{
 	private static final long serialVersionUID = 1L;
-	LibraryMember member;
-	Book book;
-	LocalDate checkoutDate;
-	LocalDate returnDate;
-	boolean returned;
+	private LibraryMember member;
+	private Book book;
+	private LocalDate checkoutDate;
+	private LocalDate returnDate;
+	
+
+	private boolean returned;
+	
+	String trial = "show this on table";
 	
 	CheckoutEntry(LibraryMember thatMember, Book thatBook){
 		book = thatBook;
@@ -26,18 +30,36 @@ public final class CheckoutEntry implements Serializable{
 		thatBook.addCheckoutEntry(this);
 	}
 	
-	public boolean isItReturned() {
-		return returned;
+	public String getBookTitle() {
+		return book.getTitle();
 	}
 	
-	public LocalDate getReturnedDate() {
-		if(!returned)
-			return null;
-		return returnDate;
+	public String getISBN() {
+		return book.getISBN();
+	}
+	
+	public boolean getReturned() {
+		return returned;
 	}
 	
 	public Book getBook() {
 		return book;
+	}
+	
+	public int getCurrentlyAvailableBooks() {
+		return book.getCurrentlyAvailable();
+	}
+	
+	public LocalDate getReturnDate() {
+		return returnDate;
+	}
+	
+	public String getMemberId() {
+		return member.getMemberId();
+	}
+	
+	public String getMemberName() {
+		return member.getFullName();
 	}
 	
 	public LocalDate getCheckoutDate() {
@@ -61,7 +83,7 @@ public final class CheckoutEntry implements Serializable{
 				+ ", checkoutDate="	+ checkoutDate 
 				+ ", returnDate=" + returnDate 
 				+ ", returned=" + returned 
-				+ "]";
+				+ "]\n";
 	}
 	
 	@Override public int hashCode() {

@@ -16,9 +16,9 @@ public final class Book implements Serializable{
 	List<CheckoutEntry> checkoutList; 
 	private List<Author> authors = new ArrayList<>();
 	private int currentlyAvailable;
+	
 	private int maxCheckouts;
 	private int maxBorrowDate;
-
 	
 	public Book(String isbn, String thatTitle, int numOfCopies,
 			List<Author> authorList, int maxDate) {
@@ -69,6 +69,10 @@ public final class Book implements Serializable{
 	public void makeAvailable() {
 		availablity = true;
 	}
+	
+	public int getCurrentlyAvailable() {
+		return currentlyAvailable;
+	}
 
 	public void addAuthor(Author author) {
 		authors.add(author);
@@ -82,7 +86,7 @@ public final class Book implements Serializable{
 		checkoutList.add(thisOne);
 	}
 	
-	public List<CheckoutEntry> getBorrowersList() {
+	public List<CheckoutEntry> getCheckoutList() {
 		return checkoutList;
 	}
 

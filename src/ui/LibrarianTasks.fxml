@@ -41,13 +41,13 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="1026.0">
                      <children>
-                        <TableView layoutX="-3.0" layoutY="1.0" prefHeight="356.0" prefWidth="970.0">
+                        <TableView fx:id="history_table" layoutX="-3.0" layoutY="1.0" prefHeight="356.0" prefWidth="970.0">
                           <columns>
-                              <TableColumn fx:id="col_sn" prefWidth="22.0" text="s.n" />
-                            <TableColumn fx:id="col_checkoutDate" prefWidth="90.0" text="Checkout Date" />
-                            <TableColumn fx:id="col_checkinDate" prefWidth="82.0" text="Checkin Date" />
-                              <TableColumn fx:id="col_bookTitle" prefWidth="303.0" text="Book Title" />
-                              <TableColumn fx:id="col_iSBN" prefWidth="53.0" text="iSBN" />
+                              <TableColumn fx:id="col_sn" prefWidth="30.0" text="ac" />
+                            <TableColumn fx:id="col_checkoutDate" prefWidth="86.0" text="Checkout Date" />
+                            <TableColumn fx:id="col_checkinDate" prefWidth="84.0" text="Checkin Date" />
+                              <TableColumn fx:id="col_iSBN" prefWidth="96.0" text="iSBN" />
+                              <TableColumn fx:id="col_bookTitle" prefWidth="254.0" text="Book Title" />
                               <TableColumn fx:id="col_memberId" prefWidth="110.0" text="Member id" />
                               <TableColumn fx:id="col_memberName" minWidth="0.0" prefWidth="244.0" text="Member Name" />
                               <TableColumn fx:id="col_returned" prefWidth="65.0" text="Returned?" />

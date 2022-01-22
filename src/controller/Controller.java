@@ -110,7 +110,7 @@ public class Controller {
 	public List<LibraryMember> getBorrowerList(Book b) {
 		List<LibraryMember> borrowers = new ArrayList<>();
 		
-		for(CheckoutEntry everyCheckout : b.getBorrowersList())
+		for(CheckoutEntry everyCheckout : b.getCheckoutList())
 			borrowers.add(everyCheckout.getMember());
 		
 		return borrowers;	
