@@ -6,19 +6,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="631.0" style="-fx-background-color: #085f73#085f73 #085f73#085f73;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AdminUI">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="631.0" style="-fx-background-color: #085269#085269;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AdminUI">
    <top>
-      <AnchorPane prefHeight="122.0" prefWidth="600.0" style="-fx-background-color: #085f73#085f73 #085f73#085f73;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="122.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="10.0" layoutY="20.0" prefHeight="35.0" prefWidth="433.0" text="Library Admin" textFill="WHITE">
+            <Label layoutX="207.0" layoutY="28.0" prefHeight="35.0" prefWidth="260.0" text="Welcome Admin" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font></Label>
-            <Button fx:id="logAdminOut" layoutX="531.0" layoutY="20.0" mnemonicParsing="false" onAction="#adminLogout" text="Logout" />
-            <Button id="btnNewMember" layoutX="208.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryMember" text="New Member" />
-            <Button id="btnNewStaff" layoutX="369.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryStaff" text="Manage Staff" />
-            <Button id="btnLibRole" fx:id="btnLibRoles" layoutX="504.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibrarianRoles" text="Librarian Role" />
-            <Button id="btnNewBook" layoutX="57.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddBook" prefHeight="25.0" prefWidth="113.0" text="Add New Book" />
+            <Button fx:id="logAdminOut" layoutX="519.0" layoutY="20.0" mnemonicParsing="false" onAction="#adminLogout" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: #cc6441#cc6441;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button id="btnNewMember" layoutX="217.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryMember" style="-fx-background-color: #7dc777#7dc777;" text="New Member" textFill="WHITE" />
+            <Button id="btnNewStaff" layoutX="369.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibraryStaff" style="-fx-background-color: #7dc777#7dc777;" text="Manage Staff" textFill="WHITE" />
+            <Button id="btnLibRole" fx:id="btnLibRoles" layoutX="504.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddLibrarianRoles" style="-fx-background-color: #7dc777#7dc777;" text="Librarian Role" textFill="WHITE" />
+            <Button id="btnNewBook" layoutX="57.0" layoutY="86.0" mnemonicParsing="false" onAction="#goToAddBook" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #7dc777#7dc777;" text="Add New Book" textFill="WHITE" />
          </children>
       </AnchorPane>
    </top>

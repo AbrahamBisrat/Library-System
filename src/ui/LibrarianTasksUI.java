@@ -113,6 +113,7 @@ public class LibrarianTasksUI implements Initializable{
 		history_table.setItems(getCheckoutEntry());
 		
 		history_table.getColumns().addAll(
+//				col_ac,
 				col_checkoutDate,
 				col_checkinDate,
 				col_bookTitle,

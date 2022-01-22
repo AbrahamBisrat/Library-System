@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="712.0" prefWidth="1019.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LibrarianTasksUI">
    <children>
@@ -21,7 +22,10 @@
                      <children>
                         <TextArea id="txtCheckOutSummary" fx:id="txtCheckoutSummary" layoutX="30.0" layoutY="38.0" prefHeight="187.0" prefWidth="527.0" />
                         <Label layoutX="30.0" layoutY="14.0" prefHeight="17.0" prefWidth="94.0" text="Summnary" />
-                        <Button fx:id="btnCheckoutBook" layoutX="331.0" layoutY="285.0" mnemonicParsing="false" onAction="#BookCheckOut" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #98c771#98c771;" text="Checkout" textFill="#f5f5f5" />
+                        <Button fx:id="btnCheckoutBook" layoutX="331.0" layoutY="285.0" mnemonicParsing="false" onAction="#BookCheckOut" prefHeight="35.0" prefWidth="170.0" style="-fx-background-color: #98c771#98c771;" text="Checkout" textFill="#f5f5f5">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
             </content>
@@ -64,7 +68,13 @@
       <TextArea id="txtMemberDetails" fx:id="txtMemberDetails" layoutX="517.0" layoutY="66.0" prefHeight="69.0" prefWidth="471.0" />
       <Button id="btnClear" fx:id="btnClear" layoutX="422.0" layoutY="29.0" mnemonicParsing="false" onAction="#Clear" prefHeight="25.0" prefWidth="61.0" text="Clear" />
       <Label id="lblMessage" fx:id="lblMessage" layoutX="48.0" layoutY="576.0" text="Label" />
-      <Button id="btnAdminRoles" fx:id="btnAdminRoles" layoutX="652.0" layoutY="572.0" mnemonicParsing="false" onAction="#goToAddAdminRoles" prefHeight="25.0" prefWidth="87.0" text="Admin Roles" />
-      <Button id="btnLogout" fx:id="btnLogout" layoutX="920.0" layoutY="572.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: red;" text="Logout" textFill="#f5f5f5" />
+      <Button id="btnAdminRoles" fx:id="btnAdminRoles" layoutX="706.0" layoutY="565.0" mnemonicParsing="false" onAction="#goToAddAdminRoles" prefHeight="25.0" prefWidth="136.0" text="Admin Roles">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button id="btnLogout" fx:id="btnLogout" layoutX="900.0" layoutY="566.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #d6562b#d6562b;" text="Logout" textFill="#f5f5f5">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

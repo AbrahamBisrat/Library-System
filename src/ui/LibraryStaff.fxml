@@ -9,9 +9,9 @@
 
 <AnchorPane prefHeight="443.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LibraryStaffUI">
    <children>
-      <Label layoutX="98.0" layoutY="45.0" text="Add Library Staff">
+      <Label layoutX="303.0" layoutY="25.0" text="Add Librarian">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
       <TextField id="txtFirstName" fx:id="txtFirstName" layoutX="98.0" layoutY="71.0" prefHeight="25.0" prefWidth="211.0" promptText="First Name" />
@@ -19,9 +19,15 @@
       <Label layoutX="35.0" layoutY="75.0" text="First Name" />
       <Label layoutX="368.0" layoutY="75.0" text="Last Name" />
       <Label layoutX="32.0" layoutY="120.0" text="Role" />
-      <Button id="btnAddMember" fx:id="btnSaveStaff" layoutX="369.0" layoutY="116.0" mnemonicParsing="false" onAction="#AddNewStaff" text="Add Staff" />
+      <Button id="btnAddMember" fx:id="btnSaveStaff" layoutX="369.0" layoutY="116.0" mnemonicParsing="false" onAction="#AddNewStaff" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #a8d67a#a8d67a;" text="Add to records" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <Button id="btnClearDetails" fx:id="btnClear" layoutX="548.0" layoutY="115.0" mnemonicParsing="false" onAction="#clearData" prefHeight="25.0" prefWidth="65.0" text="Clear" />
-      <Button id="btnCancel" fx:id="btnGoToPanel" layoutX="546.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
+      <Button id="btnCancel" fx:id="btnGoToPanel" layoutX="546.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #db9470#db9470;" text="Back" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
       <ComboBox id="cmbRole" fx:id="cmbRole" layoutX="100.0" layoutY="116.0" prefHeight="25.0" prefWidth="211.0" promptText="Select Role" />
       <Label fx:id="lblMessage2" layoutX="42.0" layoutY="173.0" prefHeight="17.0" prefWidth="578.0" />
    </children>
